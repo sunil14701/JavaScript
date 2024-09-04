@@ -77,3 +77,24 @@ console.log(typeof email); // object, value is null but not type, bug not correc
 */
 
 // 12 let, const and var
+// let, const: ES6
+// var: before ES6
+
+let age = 30; // mutable variable, define empty variable
+age = 31;
+
+const birthYear = 1991; // not suppose to change in program, immutable
+// birthYear = 1992; wrong
+// const job; // no empty const variable, as can not be changed later in code
+
+// use const more as we get less bugs. use let only if you are sure that variable is going to change.
+
+// var: don't use it; will be there in legacy code
+var job = "programmer";
+job = "teacher";
+
+// let is block scoped and var is function scoped
+
+// we can create a variable w/o let, const, var
+lastName = "Kumar";
+console.log(lastName); // terrible idea ; does not create a variable in current scope, instead JS will create a property in global object
