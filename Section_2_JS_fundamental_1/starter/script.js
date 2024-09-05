@@ -158,6 +158,7 @@ console.log(avgAge);
 console.log(2**4);
 */
 
+/*
 // l17 strings and template literals(ES 6)
 const firstName = 'Jonas';
 const job = 'Teacher';
@@ -180,3 +181,24 @@ console.log(`hello
 console.log('hello\n\
     yello');// before ES6
 console.log('hello\n    yello');// before ES6
+*/
+
+// L18 if/else statement
+const currAge = 18;
+const threshold = 18;
+
+const canDrive = currAge >= threshold;
+if (canDrive) console.log("You can drive");
+else console.log(`you can drive after ${threshold - currAge} years.`);
+
+if (currAge > threshold) console.log("You can drive.");
+else if (currAge == threshold) console.log("Give DL test");
+else console.log(`you can drive after ${threshold - currAge} years`);
+
+const birthYear = 2015;
+let century;
+if(birthYear>2000 && birthYear <3000) century = 21;
+else if(birthYear>1900 && birthYear <=2000) century = 20;
+else century = 18;
+console.log(century);
+
