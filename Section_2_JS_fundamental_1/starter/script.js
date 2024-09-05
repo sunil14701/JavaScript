@@ -139,6 +139,7 @@ const isFullAge = ageSarah >= 18;
 // all the variable that are present on linked script will be present in brwoser console
 */
 
+/*
 // L14 operator precedence -> mdn presedence table
 const now = 2037;
 const ageJonas = now - 1991;
@@ -154,3 +155,5 @@ console.log(x, y);
 
 let avgAge = (ageJonas + ageSarah) / 2;
 console.log(avgAge);
+console.log(2**4);
+*/
