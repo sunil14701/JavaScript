@@ -204,6 +204,7 @@ else century = 18;
 console.log(century);
 */
 
+/*
 // L20 type conversion and coercion
 // type conversion: manually convert one type to another 
 const inputYear = '1991';
@@ -228,4 +229,30 @@ console.log(n);
 
 console.log(2+3+4+'5');
 console.log('10'-'4'-'3'-2+'5');
+*/
 
+// l21 truthy and falsy values
+// only 5 falsy values : 0, "", undefined, null, NaN
+// when typecase above than falsy values else truty values
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(`Jonas`));
+console.log(Boolean({}));
+
+// boolean is always type coercion
+if(!"") console.log("hello");
+else console.log("no hello");
+
+const money = 0;
+if(money){
+    console.log(`Don't spend it all :)`);
+}else {
+    console.log(`You should get a job.`);
+}
+
+
+// let height;
+let height = 23;
+if(height) console.log('Height is defined');
+else console.log('Height is undefined');
