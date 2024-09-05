@@ -101,6 +101,7 @@ lastName = "Kumar";
 console.log(lastName); // terrible idea ; does not create a variable in current scope, instead JS will create a property in global object
 */
 
+/*
 // 13 basic operators
 const now = 2037;
 const ageJonas = now - 1991;
@@ -135,6 +136,21 @@ console.table(now-1991 > now-2018);
 console.log(ageSarah >= 18);
 const isFullAge = ageSarah >= 18;
 
-
-
 // all the variable that are present on linked script will be present in brwoser console
+*/
+
+// L14 operator precedence -> mdn presedence table
+const now = 2037;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+console.log(now - 1991 > now - 2018);
+console.log(25 - 10 - 5); // 10 left to right
+console.log(25 - 10 - 5); // 20 presendece right to left
+
+// = is right to left
+let x, y;
+x = y = 25 - 10 - 5;
+console.log(x, y);
+
+let avgAge = (ageJonas + ageSarah) / 2;
+console.log(avgAge);
