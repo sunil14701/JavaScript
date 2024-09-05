@@ -157,3 +157,26 @@ let avgAge = (ageJonas + ageSarah) / 2;
 console.log(avgAge);
 console.log(2**4);
 */
+
+// l17 strings and template literals(ES 6)
+const firstName = 'Jonas';
+const job = 'Teacher';
+const birthYear = 1991;
+const currYear = 2037;
+
+let description = "I'm " + firstName + ', a ' + (currYear - birthYear) + ' year old ' + job + '!.';
+console.log(description); 
+
+// backticks are used
+description = `I'm ${firstName},a ${currYear - birthYear} year old ${job}!`;
+console.log(description);
+
+// can use backticks, single quotes, double quotes in strings.
+// use backticks always
+
+// backticks: multi line strings
+console.log(`hello
+    yello`);
+console.log('hello\n\
+    yello');// before ES6
+console.log('hello\n    yello');// before ES6
