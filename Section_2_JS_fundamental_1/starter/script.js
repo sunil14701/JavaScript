@@ -183,6 +183,7 @@ console.log('hello\n\
 console.log('hello\n    yello');// before ES6
 */
 
+/*
 // L18 if/else statement
 const currAge = 18;
 const threshold = 18;
@@ -201,4 +202,30 @@ if(birthYear>2000 && birthYear <3000) century = 21;
 else if(birthYear>1900 && birthYear <=2000) century = 20;
 else century = 18;
 console.log(century);
+*/
+
+// L20 type conversion and coercion
+// type conversion: manually convert one type to another 
+const inputYear = '1991';
+console.log(inputYear + 18);
+console.log(Number(inputYear) + 18);
+console.log(Number('123q')); // NaN i.e invalid number 
+console.log(NaN, typeof NaN);
+console.log(123,String(123));
+// can not convert to undefined or null
+console.log(Boolean(0), Boolean(10));
+
+// type coercion: js auto convert types 
+console.log(1 + 'A'); // number + string = string
+console.log(23 - '2'); // 21
+console.log(23 + '2'); // 232
+console.log('23' * '2');//46
+console.log('23' * 2); //46
+
+let n = '1' + 1;
+n = n-1;
+console.log(n);
+
+console.log(2+3+4+'5');
+console.log('10'-'4'-'3'-2+'5');
 
