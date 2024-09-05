@@ -231,6 +231,7 @@ console.log(2+3+4+'5');
 console.log('10'-'4'-'3'-2+'5');
 */
 
+/*
 // l21 truthy and falsy values
 // only 5 falsy values : 0, "", undefined, null, NaN
 // when typecase above than falsy values else truty values
@@ -256,3 +257,26 @@ if(money){
 let height = 23;
 if(height) console.log('Height is defined');
 else console.log('Height is undefined');
+*/
+
+// l22: equality operators == vs ===
+//  === : strict equality operator, do not do type coercion
+//  == : losse equality operator, do type coercion
+const age = 18;
+if (age === 18) console.log("Adult");
+
+if (18 == "18") console.log("loose");
+if (18 === "18") console.log("strict");
+// avoid == as it can introduce bugs, use strict
+
+const favNum = prompt(`What's your number`);
+console.log(favNum, typeof favNum);
+
+if (Number(favNum) === 23) console.log(`amazing number`);
+else if (Number(favNum) === 7) console.log(`prime no`);
+else console.log(`not amazing`);
+
+//  != , !==
+// always use the strict version
+if ("9" !== 9) console.log("strict compartion");
+if ("9" != 9) console.log("loose compartion");
