@@ -76,6 +76,7 @@ let email = null;
 console.log(typeof email); // object, value is null but not type, bug not corrected bcs of legacy reasons
 */
 
+/*
 // 12 let, const and var
 // let, const: ES6
 // var: before ES6
@@ -98,3 +99,42 @@ job = "teacher";
 // we can create a variable w/o let, const, var
 lastName = "Kumar";
 console.log(lastName); // terrible idea ; does not create a variable in current scope, instead JS will create a property in global object
+*/
+
+// 13 basic operators
+const now = 2037;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+console.log(ageJonas, ageSarah);
+
+console.log(ageJonas*2)
+console.log((ageJonas+1)/2);
+console.log(ageJonas**2);
+
+const firstName = 'Jonas';
+const lastName = 'kumar';
+console.log(firstName + ' ' + lastName); // template string will be used later
+
+// typeof operator -> used earlier
+
+// assignment operator
+let x = 10 + 4;
+console.log(x);
+x += 10;// const will not work
+x *= 2;
+x /=10;
+x++;
+x--;
+++x;
+--x;
+console.log(x);
+
+// comparison operators -> produce bool values
+console.log(ageJonas > ageSarah);// >, < , <=, >=
+console.table(now-1991 > now-2018);
+console.log(ageSarah >= 18);
+const isFullAge = ageSarah >= 18;
+
+
+
+// all the variable that are present on linked script will be present in brwoser console
