@@ -315,6 +315,7 @@ if(canDrive) console.log(`Sarah can drive for next 2 hrs`);
 else console.log(`Sarah has to rest.`);
 */
 
+/*
 // L26 switch statement
 let day = prompt("Enter you Day below");
 
@@ -369,3 +370,11 @@ else if (day === "Friday") console.log("Today is Friday");
 else if (day === "Saturday") console.log("Today is Saturday");
 else if (day === "Sunday") console.log("Today is Sunday");
 else console.log("Default");
+*/
+
+// l27 statements and expressions
+// expression: piece of code that produces a value. eg: 4+5, 1991, true && false, 'string'.
+// statement: piece of code that do not produce a value. It ends with semi-colon. eg: if-else statement, switch statement.
+
+// In template literals we can only expect expressions and not statement.
+console.log(`I'm good ${23}, ${if(12) 34; else 45}`);
