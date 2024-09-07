@@ -283,9 +283,33 @@ if ("9" !== 9) console.log("strict compartion");
 if ("9" != 9) console.log("loose compartion");
 */
 
+/*
 // l23 boolean logic
 // AND -> &&
 // OR -> ||
 // NOT -> !
 
 const age = 16
+*/
+
+// l24 logical operators
+const hasDriversLicense = true;
+const hasGoodVision = true;
+
+let ansAnd = hasDriversLicense && hasGoodVision; 
+let ansOR = hasDriversLicense || hasGoodVision; 
+console.log(ansAnd, ansOR, !hasDriversLicense);
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+
+if(shouldDrive) console.log(`Sarah is able to drive`);
+else console.log(`Someone else should drive.`);
+
+const isTired =false;
+console.log(hasDriversLicense && hasGoodVision || isTired);
+
+const canDrive = hasDriversLicense && hasGoodVision && !isTired;
+
+if(canDrive) console.log(`Sarah can drive for next 2 hrs`);
+else console.log(`Sarah has to rest.`);
+
