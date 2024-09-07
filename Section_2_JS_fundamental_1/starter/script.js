@@ -259,6 +259,7 @@ if(height) console.log('Height is defined');
 else console.log('Height is undefined');
 */
 
+/*
 // l22: equality operators == vs ===
 //  === : strict equality operator, do not do type coercion
 //  == : losse equality operator, do type coercion
@@ -280,3 +281,11 @@ else console.log(`not amazing`);
 // always use the strict version
 if ("9" !== 9) console.log("strict compartion");
 if ("9" != 9) console.log("loose compartion");
+*/
+
+// l23 boolean logic
+// AND -> &&
+// OR -> ||
+// NOT -> !
+
+const age = 16
