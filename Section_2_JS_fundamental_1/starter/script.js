@@ -400,3 +400,5 @@ console.log(`God is ${age<18? "Good": "Bad"}`);
 
 */
 
+// l30 JS releases: ES5, ES6+, ESNEXT
+// PDF
