@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
 // l31 section intro
 console.log(`Hello world`);
@@ -25,6 +25,7 @@ const private = 23;
 // more on this later; such as for functions, objecs, setting properties on primitive values etc.
 */
 
+/*
 // l33: functions
 // peice of code used again and again.
 // DRY principle; maintainable code
@@ -51,3 +52,32 @@ console.log(juice2);
 console.log(log);
 
 // console.log(), Number(), boolean() -> built-in fx
+*/
+
+// l34 fx declarations vs expressions
+
+// fx declaration
+const age3 = calcAge(1991); // calling fx declaration before it's defined
+console.log(age3)
+
+function calcAge(birthYear) {
+  const age = 2037 - birthYear;
+  return age;
+}
+const age1 = calcAge(1991);
+
+// fx expression
+
+// calling fx expression before defined, will not work bcs of hoisting
+// const age = calcAge2(1991);
+// console.log(age4);
+
+const calcAge2 = function (birthYear) {
+  return 2037 - birthYear;
+};
+const age2 = calcAge2(1991);
+
+console.log(age1, age2); //arguments are passed to fx, fx recieve parameters
+
+// in js fx are just values
+// fx expression can be a fail safe as we have to define a fx first to use it. else we can not call it.
