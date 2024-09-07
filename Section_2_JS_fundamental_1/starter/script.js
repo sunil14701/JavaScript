@@ -292,6 +292,7 @@ if ("9" != 9) console.log("loose compartion");
 const age = 16
 */
 
+/*
 // l24 logical operators
 const hasDriversLicense = true;
 const hasGoodVision = true;
@@ -312,4 +313,6 @@ const canDrive = hasDriversLicense && hasGoodVision && !isTired;
 
 if(canDrive) console.log(`Sarah can drive for next 2 hrs`);
 else console.log(`Sarah has to rest.`);
+*/
 
+// 
