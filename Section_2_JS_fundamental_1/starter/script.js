@@ -372,9 +372,31 @@ else if (day === "Sunday") console.log("Today is Sunday");
 else console.log("Default");
 */
 
+/*
 // l27 statements and expressions
 // expression: piece of code that produces a value. eg: 4+5, 1991, true && false, 'string'.
 // statement: piece of code that do not produce a value. It ends with semi-colon. eg: if-else statement, switch statement.
 
 // In template literals we can only expect expressions and not statement.
 console.log(`I'm good ${23}, ${if(12) 34; else 45}`);
+*/
+
+/*
+// l28 ternary operator
+const age = 12;
+const canDrive = age>= 18? "Can drive":"Can not drive";
+let canDrive2;
+if(age >=18) canDrive2 = 'Can drive';
+else canDrive2 = 'Can not drive';
+
+console.log(canDrive);
+console.log(canDrive2);
+
+age >= 18? console.log(`Can drive`): console.log(`Can not drive`);
+
+// operator always produces a value. So its a expression
+// it can be used in template leterals
+console.log(`God is ${age<18? "Good": "Bad"}`);
+
+*/
+
