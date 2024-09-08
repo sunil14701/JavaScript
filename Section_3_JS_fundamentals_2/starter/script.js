@@ -84,6 +84,7 @@ console.log(age1, age2); //arguments are passed to fx, fx recieve parameters
 // fx expression can be a fail safe as we have to define a fx first to use it. else we can not call it.
 */
 
+/*
 // l35: arrow fx
 
 function fx1() {}
@@ -111,3 +112,18 @@ const yearUnitilRetirement = (birthYear, firstName) => {
 console.log(yearUnitilRetirement(1991, 'Sunil'));
 
 // arrow fx do not get a 'this' keyword
+*/
+
+// l36 fx calling other fx
+function fruitProcessor(apples, oranges){
+  const applePieces = cutFruitPiece(apples);
+  const orangePieces = cutFruitPiece(oranges);
+  const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of oranges.`;
+  return juice;
+}
+
+function cutFruitPiece(fruit){
+  return fruit*4;
+}
+
+console.log(fruitProcessor(2,4));
