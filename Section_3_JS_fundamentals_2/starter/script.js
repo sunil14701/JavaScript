@@ -115,6 +115,7 @@ console.log(yearUnitilRetirement(1991, 'Sunil'));
 */
 
 // l36 fx calling other fx
+/*
 function fruitProcessor(apples, oranges){
   const applePieces = cutFruitPiece(apples);
   const orangePieces = cutFruitPiece(oranges);
@@ -127,3 +128,4 @@ function cutFruitPiece(fruit){
 }
 
 console.log(fruitProcessor(2,4));
+*/
