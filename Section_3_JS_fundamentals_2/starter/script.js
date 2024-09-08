@@ -54,6 +54,7 @@ console.log(log);
 // console.log(), Number(), boolean() -> built-in fx
 */
 
+/*
 // l34 fx declarations vs expressions
 
 // fx declaration
@@ -81,3 +82,32 @@ console.log(age1, age2); //arguments are passed to fx, fx recieve parameters
 
 // in js fx are just values
 // fx expression can be a fail safe as we have to define a fx first to use it. else we can not call it.
+*/
+
+// l35: arrow fx
+
+function fx1() {}
+
+const fx2 = function () {};
+
+const calcAge2 = function (birthYear) {
+  return 2037 - birthYear;
+};
+
+// arrow fx: special form of fx expression
+// 1 parameter
+const calcAge3 = (birthYear) => 2037 - birthYear; // return is implicit in one liner fx
+
+const age3 = calcAge3(1991);
+console.log(age3);
+
+// many parameters
+const yearUnitilRetirement = (birthYear, firstName) => {
+  const currAge = 2037 - birthYear;
+  const retirementAge = 65 - currAge;
+  // return retirementAge;
+  return `${firstName} will retire after ${retirementAge} age.`;
+};
+console.log(yearUnitilRetirement(1991, 'Sunil'));
+
+// arrow fx do not get a 'this' keyword
