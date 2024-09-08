@@ -130,6 +130,7 @@ function cutFruitPiece(fruit){
 console.log(fruitProcessor(2,4));
 */
 
+/*
 // l37: reviewing fx
 const yearUnitilRetirement = (birthYear, firstName) => {
   const currAge = 2037 - birthYear;
@@ -153,3 +154,43 @@ const yearUnitilRetirement2 = function(birthYear, firstName){
 console.log(yearUnitilRetirement2(1991, 'Sunil'));
 console.log(yearUnitilRetirement2(1970, 'John'));
 
+*/
+
+// l39: intro to arrays
+// array: not a primitve value, diff values in array
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+// impd data structure in js are objects and arrays
+const friends = ['Micheal', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984);
+console.log(friends[0]);
+console.log(friends.length);
+console.log(friends[friends.length-1]);// inside of sq brackets statement are not used, expressions is used
+
+friends[2] = 'Jay';// only primitive datatypes are immutable
+console.log(friends);
+// friends = [] error
+
+// const nameq = 'sunil';
+// nameq[1]='e'; //error 
+
+const jonas = ["Jonas",'Kumar', 2037-1991, 'teacher', friends];
+console.log(jonas);
+
+// exercise
+const calcAge = function(birthYear){
+  return 2037 - birthYear;
+};
+
+const yearss = [1990, 1967, 2002, 2010, 2018];
+const age1 = calcAge(yearss[0]);
+const age2 = calcAge(yearss[1]);
+const age3 = calcAge(yearss[yearss.length-1]);
+console.log(age1, age2, age3);
+
+const ages = [calcAge(yearss[0]),calcAge(yearss[1])];
+console.log(ages)
