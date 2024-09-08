@@ -129,3 +129,26 @@ function cutFruitPiece(fruit){
 
 console.log(fruitProcessor(2,4));
 */
+
+// l37: reviewing fx
+const yearUnitilRetirement = (birthYear, firstName) => {
+  const currAge = 2037 - birthYear;
+  const retirementAge = 65 - currAge;
+  return `${firstName} will retire after ${retirementAge} age.`;
+};
+
+const calcAge = function(birthYear){
+  const currAge = 2037 - birthYear;
+  return currAge;
+}
+
+const yearUnitilRetirement2 = function(birthYear, firstName){
+  const currAge = calcAge(birthYear);
+  const retirementAge = 65 - currAge;
+  if(retirementAge>=0) return retirementAge;
+  else return -1;
+  // return `${firstName} will retire after ${retirementAge} age.`;
+}
+
+console.log(yearUnitilRetirement2(1991, 'Sunil'));
+console.log(yearUnitilRetirement2(1970, 'John'));
