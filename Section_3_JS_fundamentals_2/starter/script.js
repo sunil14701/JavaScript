@@ -198,6 +198,8 @@ const ages = [calcAge(yearss[0]),calcAge(yearss[1])];
 console.log(ages)
 */
 
+/*
+
 // l40 : basic array operations
 const friends = ['Michael','Steven','Peter'];
 
@@ -228,3 +230,5 @@ console.log(friends.includes('23'));
 
 if(friends.includes('Peter')) console.log('Hi Peter');
 else console.log(`No Peter exists`);
+*/
+
