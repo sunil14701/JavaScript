@@ -10,6 +10,7 @@ const checkWinner = (avgDolphins, avgKoalas) => {
     else if((avgDolphins*2) <= avgKoalas) return `Koalas win (${avgDolphins} vs. ${avgKoalas})`;
     else return `No team wins`;
 };
+// test case fail
 
 
 // test1
@@ -40,3 +41,35 @@ for(let i=0;i<bills.length;i++){
     totals.push(bills[i] + tips[i]);
 }
 console.log(totals);
+
+// challenge 3
+// BMI = mass / (height * height);
+ 
+const mark = {
+    fullName : 'Mark Miller',
+    mass : 78,
+    height : 1.69,
+    calcBMI : function(){
+        this.bmi = this.mass/(this.height * this.height);
+        return this.bmi;
+    }
+}
+ 
+const john = {
+    fullName : 'John Smith',
+    mass : 92,
+    height : 1.95,
+    calcBMI : function(){
+        this.bmi = this.mass/(this.height * this.height);
+        return this.bmi;
+    }
+}
+
+const markBMI = mark.calcBMI();
+const johnBMI = john.calcBMI();
+ 
+console.log(mark.bmi, john.bmi);
+if(mark.bmi > john.bmi) console.log(`${mark.fullName}'s BMI(${mark.bmi}) is higher than ${john.fullName}'s BMI(${john.bmi})!`);
+else if (mark.bmi < john.bmi) console.log(`${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s BMI(${mark.bmi})!`);
+// same fx in two objecs violates the DRY. more in OOPS
+// last test case fail 
