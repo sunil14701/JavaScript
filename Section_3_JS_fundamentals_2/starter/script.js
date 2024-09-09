@@ -156,6 +156,8 @@ console.log(yearUnitilRetirement2(1970, 'John'));
 
 */
 
+/*
+
 // l39: intro to arrays
 // array: not a primitve value, diff values in array
 const friend1 = 'Michael';
@@ -194,3 +196,35 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(yearss[0]),calcAge(yearss[1])];
 console.log(ages)
+*/
+
+// l40 : basic array operations
+const friends = ['Michael','Steven','Peter'];
+
+// add elements
+const newLen = friends.push('Jay');
+console.log(friends, newLen);
+
+const newLen2 = friends.unshift('John');// push in front
+console.log(friends, newLen2);
+
+// remove elements
+const poppedEle = friends.pop();
+console.log(friends, poppedEle);
+
+friends.shift();
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Steven1'));
+
+console.log(friends.includes('Steven')); 
+console.log(friends.includes('bob'));
+
+// uses === to check the ele
+friends.push('23');
+console.log(friends.includes(23));
+console.log(friends.includes('23'));
+
+if(friends.includes('Peter')) console.log('Hi Peter');
+else console.log(`No Peter exists`);

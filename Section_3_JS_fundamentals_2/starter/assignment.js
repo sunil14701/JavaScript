@@ -55,6 +55,19 @@ console.log(describeIndia);
 console.log(describePakistan);
 console.log(describeChina);
 
+// Assignment 4: intro to arrays
+const populations = [1450, 1400, 230, 130];
+const len = populations.length;
+if(len === 4) console.log(true);
+else console.log(false);
+
+const percentages = [percentageOfWorld3(populations[0]),
+                    percentageOfWorld2(populations[1]),
+                    percentageOfWorld2(populations[2]),
+                    percentageOfWorld2(populations[3]),
+                    ];
+console.log(populations);
+console.log(percentages);
 
 
 
