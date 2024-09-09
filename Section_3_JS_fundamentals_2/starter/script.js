@@ -232,3 +232,24 @@ if(friends.includes('Peter')) console.log('Hi Peter');
 else console.log(`No Peter exists`);
 */
 
+// l42 intro to objects
+// data structure : objects
+const jonas = [
+  'Jonas', 
+  'Kumar',
+  2037-1991,
+  'teacher',
+  ['Micheal', 'Peter','Steven']
+]
+
+const jonasDetails = {
+  firstName: 'Jonas',//proprty 1
+  lastName: 'Kumar',
+  age: 2037-1991,
+  job: 'teacher',
+  friends: ['Micheal', 'Peter', 'Steven'],
+}
+console.log(jonasDetails);
+console.log(jonasDetails['job']);
+
+// in array order of elements matter, but not in objects. means arrays for order data and object for unstructed data
