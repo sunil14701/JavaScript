@@ -232,6 +232,7 @@ if(friends.includes('Peter')) console.log('Hi Peter');
 else console.log(`No Peter exists`);
 */
 
+/*
 // l42 intro to objects
 // data structure : objects
 const jonas = [
@@ -248,8 +249,47 @@ const jonasDetails = {
   age: 2037-1991,
   job: 'teacher',
   friends: ['Micheal', 'Peter', 'Steven'],
-}
-console.log(jonasDetails);
-console.log(jonasDetails['job']);
+  }
+  console.log(jonasDetails);
+  console.log(jonasDetails['job']);
+  
+  // in array order of elements matter, but not in objects. means arrays for order data and object for unstructed data
+  */
 
-// in array order of elements matter, but not in objects. means arrays for order data and object for unstructed data
+// l43 dot vs bracket notation
+// dot and brackets are just operators
+const jonasDetails = {
+  firstName: "Jonas", //proprty 1
+  lastName: "Kumar",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Micheal", "Peter", "Steven"],
+};
+console.log(jonasDetails);
+
+console.log(jonasDetails.lastName);
+console.log(jonasDetails["lastName"]);
+
+// can write expressions inside bracket. not work for dot notation
+const nameKey = "Name";
+console.log(jonasDetails["first" + nameKey]);
+console.log(jonasDetails["last" + nameKey]);
+
+const interestedIn = prompt(
+  `What do you want to know about Jonas? choose between firstName, lastName, age, job and friends`
+);
+console.log(jonasDetails[interestedIn]);
+// console.log(jonasDetails.interestedIn); // undefined as `interestedIn` key does not exist
+
+const userValue = jonasDetails[interestedIn];
+if (userValue) {
+  console.log(`the value of ${interestedIn} is ${userValue}`);
+} else console.log(`the key ${interestedIn} does not exist.`);
+
+jonasDetails.location = 'Portugal';
+jonasDetails['twitter'] = '@jonaschmedtman';
+console.log(jonasDetails);
+
+// challaenge
+const JonasInfo = `${jonasDetails['firstName']} has ${jonasDetails['friends'].length} friends, and his best friend is called ${jonasDetails['friends'][0]}`;
+console.log(JonasInfo);
