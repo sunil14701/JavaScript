@@ -256,6 +256,7 @@ const jonasDetails = {
   // in array order of elements matter, but not in objects. means arrays for order data and object for unstructed data
   */
 
+/*
 // l43 dot vs bracket notation
 // dot and brackets are just operators
 const jonasDetails = {
@@ -277,19 +278,62 @@ console.log(jonasDetails["last" + nameKey]);
 
 const interestedIn = prompt(
   `What do you want to know about Jonas? choose between firstName, lastName, age, job and friends`
-);
-console.log(jonasDetails[interestedIn]);
-// console.log(jonasDetails.interestedIn); // undefined as `interestedIn` key does not exist
+  );
+  console.log(jonasDetails[interestedIn]);
+  // console.log(jonasDetails.interestedIn); // undefined as `interestedIn` key does not exist
+  
+  const userValue = jonasDetails[interestedIn];
+  if (userValue) {
+    console.log(`the value of ${interestedIn} is ${userValue}`);
+    } else console.log(`the key ${interestedIn} does not exist.`);
+    
+    jonasDetails.location = 'Portugal';
+    jonasDetails['twitter'] = '@jonaschmedtman';
+    console.log(jonasDetails);
+    
+    // challaenge
+    const JonasInfo = `${jonasDetails['firstName']} has ${jonasDetails['friends'].length} friends, and his best friend is called ${jonasDetails['friends'][0]}`;
+    console.log(JonasInfo);
+    */
 
-const userValue = jonasDetails[interestedIn];
-if (userValue) {
-  console.log(`the value of ${interestedIn} is ${userValue}`);
-} else console.log(`the key ${interestedIn} does not exist.`);
+// l44 object methods
+// onject can hold object in it.
+// fx is value, now in object value could be a fx
+const jonasDetails = {
+  firstName: "Jonas", //proprty 1
+  lastName: "Kumar",
+  birthYear: 1991,
+  job: "teacher",
+  friends: ["Micheal", "Peter", "Steven"],
+  hasDL: true,
+  // any fx attached to object is called method. fx expression is only workable
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+  // calcAge: function () {
+  //   // console.log(this);// jonas object is the one who is calling this method
+  //   return 2037 - this.birthYear;//`this` -> object on which the method is called
+  //   return 2037 - jonasDetails.birthYear;// will work good, violates DRY principle
+  // },
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;// for less computation we create a key in object and store value
+    return this.age;
+  },
+  summary: function(){
+    const hasDriverWord = this.hasDL?'a':'no';
+    return `${this.firstName} ${this.lastName} is a ${this.calcAge()} year old ${this.job}, and he has ${hasDriverWord} driver's license.`;
+  }
+};
 
-jonasDetails.location = 'Portugal';
-jonasDetails['twitter'] = '@jonaschmedtman';
-console.log(jonasDetails);
+// console.log(jonasDetails['calcAge']);
+// console.log(jonasDetails['calcAge'](jonasDetails['birthYear']));
+// console.log(jonasDetails.calcAge(jonasDetails['birthYear']));
+console.log(jonasDetails.age);
+console.log(jonasDetails.calcAge());// 'this' keyword will point to jonasDetials object.
+console.log(jonasDetails.age);
+// jonasDetails === this => true
 
 // challaenge
-const JonasInfo = `${jonasDetails['firstName']} has ${jonasDetails['friends'].length} friends, and his best friend is called ${jonasDetails['friends'][0]}`;
-console.log(JonasInfo);
+console.log(jonasDetails.summary());// jonasdetails object is calling a method.
+
+// arrays are actually also objects. they have methods that we can use to manipulate object i.e array. eg: push, unshift, shift,pop etc.
