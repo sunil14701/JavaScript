@@ -340,9 +340,55 @@ console.log(jonasDetails.summary());// jonasdetails object is calling a method.
 // arrays are actually also objects. they have methods that we can use to manipulate object i.e array. eg: push, unshift, shift,pop etc.
 */
 
+/*
 // l46 iteration: the for loop
 // control structure: loops, if-else
 
 for(let i=0;i<10;i++){
   console.log(`Lifting weights repeition ${i+1}🏋️.`);
 }
+*/
+
+// l47: looping arrays, break, continue
+const jonas = [
+  'Jonas', 
+  'Kumar',
+  2037-1991,
+  'teacher',
+  ['Micheal', 'Peter','Steven']
+];
+
+for(let i=0;i<jonas.length;i++){
+  console.log(jonas[i], typeof jonas[i]);
+}
+
+const JonasDataTypes = new Array();
+for(let i=0;i<jonas.length;i++){
+  // JonasDataTypes.push(typeof jonas[i]);
+  JonasDataTypes[i] = typeof jonas[i];
+}
+console.log(JonasDataTypes);
+
+const years = [1991, 2007,1969,2020];
+const ages = [];
+
+for(let i=0;i<years.length;i++){
+  ages.push(2037-years[i]);
+}
+console.log(ages);
+
+// continue and break
+// continue -> move to next iteration
+// break -> abandon the loop
+console.log(`---only string---`);
+for(let i=0;i<jonas.length;i++){
+  if(typeof jonas[i] !== 'string') continue;
+  console.log(jonas[i], typeof jonas[i]);
+} 
+
+console.log(`---break---`);
+for(let i=0;i<jonas.length;i++){
+  if(typeof jonas[i] === 'number') break;
+  console.log(jonas[i], typeof jonas[i]);
+} 
+
