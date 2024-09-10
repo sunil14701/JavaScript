@@ -296,6 +296,7 @@ const interestedIn = prompt(
     console.log(JonasInfo);
     */
 
+    /*
 // l44 object methods
 // onject can hold object in it.
 // fx is value, now in object value could be a fx
@@ -337,3 +338,11 @@ console.log(jonasDetails.age);
 console.log(jonasDetails.summary());// jonasdetails object is calling a method.
 
 // arrays are actually also objects. they have methods that we can use to manipulate object i.e array. eg: push, unshift, shift,pop etc.
+*/
+
+// l46 iteration: the for loop
+// control structure: loops, if-else
+
+for(let i=0;i<10;i++){
+  console.log(`Lifting weights repeition ${i+1}🏋️.`);
+}
