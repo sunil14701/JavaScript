@@ -69,6 +69,7 @@ const percentages = [percentageOfWorld3(populations[0]),
 console.log(populations);
 console.log(percentages);
 
+// Assignment 5: basic array operations
 
 
 

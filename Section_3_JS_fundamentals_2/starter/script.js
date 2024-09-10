@@ -296,7 +296,7 @@ const interestedIn = prompt(
     console.log(JonasInfo);
     */
 
-    /*
+/*
 // l44 object methods
 // onject can hold object in it.
 // fx is value, now in object value could be a fx
@@ -349,7 +349,6 @@ for(let i=0;i<10;i++){
 }
 */
 
-
 /*
 // l47: looping arrays, break, continue
 const jonas = [
@@ -395,7 +394,8 @@ for(let i=0;i<jonas.length;i++){
   } 
   
   */
- 
+
+/*
  // l48: looping backwards and loops in loops
  
  const jonas = [
@@ -416,3 +416,20 @@ for(let i=0;i<jonas.length;i++){
     console.log(`Exec:${exe}, lifting weight repetition ${rep+1}`);
   }
  }
+ */
+
+//  l49: while loop
+let i = 0;
+while (i < 3) {
+  console.log(`loop ${i + 1}`);
+  i++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+while (dice !== 6) {
+  console.log(`${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+}
+console.log(`end`);
+// use for when you know times of iteration, else use while loop. 
