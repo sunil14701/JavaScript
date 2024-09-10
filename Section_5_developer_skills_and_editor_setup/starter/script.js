@@ -31,3 +31,18 @@ console.log(237);
 */
 
 // l57: learning how to code
+// 1. have a clear goal->todo mine learn node.js and move to development in emaar, make yt clone to minimize distractions. 
+// 2. will never know everything(fact)
+// 3. do  small challages and take notes: codewars website
+// 4 build projects; don't stuck in tutotial hell
+// 5. do not learn in isolation
+// 6. don't get stuck in perfect code
+// pdf
+
+// l58: how to think like a developer: become a problem solver
+// problem solveing do not mean fix coding mistakes or bugs
+// pdf -> 4 steps to solve any problem
+
+// l59: using google, stackoverflow, MDN
+
+
