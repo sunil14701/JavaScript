@@ -31,7 +31,7 @@ console.log(237);
 */
 
 // l57: learning how to code
-// 1. have a clear goal->todo mine learn node.js and move to development in emaar, make yt clone to minimize distractions. 
+// 1. have a clear goal->todo mine learn node.js and move to development in emaar, make yt clone to minimize distractions.
 // 2. will never know everything(fact)
 // 3. do  small challages and take notes: codewars website
 // 4 build projects; don't stuck in tutotial hell
@@ -44,5 +44,68 @@ console.log(237);
 // pdf -> 4 steps to solve any problem
 
 // l59: using google, stackoverflow, MDN
+// given an array of temp of one day, calc the temp amplitude
 
+/*
+const calcAmplitude = function (temperatures) {
+  let ma = temperatures[0];
+  let mi = temperatures[0];
+  for (let i = 0; i < temperatures.length; i++) {
+    let curr = temperatures[i];
+    if (typeof curr !== 'number') continue;
+    if (curr > ma) ma = curr;
+    if (curr < mi) mi = curr;
+  }
+  const amplitude = ma - mi;
+  return amplitude;
+};
 
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const amp = calcAmplitude(temperatures);
+console.log(`Ampitude: ${amp}`);
+
+const temperatures2 = [1, 2, 3, 4, 5, 100];
+const mergedTemp = temperatures.concat(temperatures2);
+const mergedAmp = calcAmplitude(mergedTemp);
+console.log(mergedTemp);
+console.log(mergedAmp);
+
+// l60, l61: debugging with the console and breakpoints
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: Number(prompt('Enter temp in celsius')),
+  };
+  debugger;// from js script
+  // console.log(measurement.value);
+  // console.table(measurement.value);
+  console.table(measurement);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+  const inKelvin = measurement['value'] + 273;
+  return inKelvin;
+};
+
+// A. Identify the bug
+console.log(measureKelvin());
+
+// breakpoint -> degugger
+// dev tools -> source tab -> page window -> yourFile.js -> add breakpoint -> refresh the page
+debugger
+*/
+
+// l62 coding challenge
+
+const printForcast = function(tempArray){
+    let inSingleLine = "";
+    for(let i=0;i<tempArray.length;i++){
+        inSingleLine+=(`... ${tempArray[i]}°C in ${i+1} days `);
+    }
+    inSingleLine += '...';
+    console.log(inSingleLine);
+}
+
+const forcastedMaxTemp = [17, 21, 23];
+// const forcastedMaxTemp = [12, 5, -5, 0, 4];
+printForcast(forcastedMaxTemp);
