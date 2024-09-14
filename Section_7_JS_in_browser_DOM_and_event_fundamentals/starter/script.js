@@ -29,50 +29,104 @@ document.querySelector('.guess').value = 34; // take input
 */
 // l73: handling click events
 
-const secretNumber = Math.floor(Math.random() * 19 + 1);
 // console.log(secretNumber);
-document.querySelector('.number').textContent = secretNumber;
-
-// highscore
+// document.querySelector('.number').textContent = secretNumber;
 let hightScore = 0;
 let score = 20;
+let canPlay = true;
+let hasWin = false;
+let message = 'Start guessing...';
 
-document.querySelector('.check').addEventListener(
-  'click',
-  // event handler
-  function () {
-    //   console.log(document.querySelector('.guess').value);
-    const inputValue = Number(document.querySelector('.guess').value);
-    console.log(inputValue, typeof inputValue);
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
+const calcSecretNumber = function () {
+  return Math.floor(Math.random() * 19 + 1);
+};
+
+const setSecretNumber = function (width, placeholder) {
+  document.querySelector('.number').style.width = width; // assign a  string
+  document.querySelector('.number').textContent = placeholder;
+};
+let secretNumber = calcSecretNumber();
+
+const setBodyColor = function (color) {
+  //   document.body.style.backgroundColor = 'green';
+  document.querySelector('body').style.backgroundColor = color; // inline style is applied, check in dev tools-> elements
+};
+
+const setScore = function (score) {
+  document.querySelector('.score').textContent = score;
+};
+
+const updateHighScore = function (highScore) {
+  if (hightScore < score) {
+    hightScore = score;
+    document.querySelector('.highscore').textContent = hightScore;
+  }
+};
+// event handler, pass anynanomas fx
+const checkWin = function () {
+  const inputValue = Number(document.querySelector('.guess').value);
+  //   console.log(inputValue, typeof inputValue, secretNumber); // check secret number
+  if (canPlay) {
     if (!inputValue) {
-      document.querySelector('.message').textContent = 'No number entered.';
+      message = 'No number entered.';
     } else {
       if (score > 1) {
         if (inputValue === secretNumber) {
-            document.querySelector('body').style.backgroundColor = 'green';// inline style is applied, check in dev tools-> elements
-            console.log(document.querySelector('.number').style.width = '30rem') // assign a  string
-        //   document.body.style.backgroundColor = 'green';
-          document.querySelector('.message').textContent = 'Correct answer';
-          if (hightScore < score) hightScore = score;
-          document.querySelector('.highscore').textContent = hightScore;
-          document.querySelector('.score').textContent = 20;
-        } else if (inputValue < secretNumber) {
-            document.querySelector('.message').textContent = 'Too small guess';
+          hasWin = true;
+          canPlay = false;
+          setBodyColor('green');
+          setSecretNumber('30rem', secretNumber);
+          message = 'Correct answer';
+          updateHighScore(hightScore);
         } else {
-            document.querySelector('.message').textContent = 'Too high guess';
+          message =
+            inputValue < secretNumber ? 'Too small guess' : 'Too high guess';
+          score--;
         }
-        document.querySelector('.score').textContent = --score;
-    }else{
-        document.querySelector('.score').textContent = --score;
-        document.querySelector('.message').textContent = 'Your lost';
-        document.body.style.backgroundColor = 'red';
-        // score = 20;
-        // document.querySelector('.score').textContent = score;
+      } else {
+        canPlay = false;
+        score--;
+        message = 'Your lost. Play again';
+        setBodyColor('red');
+      }
+      setScore(score);
     }
-    }
-    // if(inputValue  === 45) {
-    //     document.querySelector('.message').textContent = 'Sunil Wins';
-    // }
+  } else {
+    message = `${hasWin ? 'You Win, want to' : 'You Lose❌'} Play Again`;
   }
-);
+
+  //   update message UI
+  displayMessage(message);
+};
+
+// again functionality
+const playAgain = function () {
+  canPlay = true;
+  hasWin = false;
+
+  setBodyColor('#222');
+
+  // new secret number
+  secretNumber = calcSecretNumber();
+  setSecretNumber('15rem', '?');
+  message = 'Start guessing...';
+  displayMessage(message);
+  document.querySelector('.guess').value = '';
+
+  // reset backend score and UI
+  score = 20;
+  setScore(score);
+};
+
 // addeventlistener: js engine executes the fx, we just pass the fx expression and do not call it
+document.querySelector('.check').addEventListener('click', checkWin);
+
+// challaenge #1
+// attact event listner to again btn
+document.querySelector('.again').addEventListener('click', playAgain);
+
+// made code DRY
