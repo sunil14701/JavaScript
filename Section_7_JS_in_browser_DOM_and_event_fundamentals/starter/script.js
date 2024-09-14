@@ -49,11 +49,13 @@ document.querySelector('.check').addEventListener(
     } else {
       if (score > 1) {
         if (inputValue === secretNumber) {
-          document.body.style.backgroundColor = 'green';
+            document.querySelector('body').style.backgroundColor = 'green';// inline style is applied, check in dev tools-> elements
+            console.log(document.querySelector('.number').style.width = '30rem') // assign a  string
+        //   document.body.style.backgroundColor = 'green';
           document.querySelector('.message').textContent = 'Correct answer';
           if (hightScore < score) hightScore = score;
           document.querySelector('.highscore').textContent = hightScore;
-          document.querySelector('.score') = 20;
+          document.querySelector('.score').textContent = 20;
         } else if (inputValue < secretNumber) {
             document.querySelector('.message').textContent = 'Too small guess';
         } else {
