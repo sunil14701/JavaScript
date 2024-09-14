@@ -18,3 +18,9 @@ console.log(document.querySelector('.message').textContent);
 // besides DOM there are other webAPI's like timers fetch
 // pdf 
 
+// l72 selecting ana manupulating elements
+console.log(document.querySelector('.message').textContent);
+document.querySelector('.message').textContent = 'Correct Number';
+document.querySelector('.number').textContent = '12';
+document.querySelector('.score').textContent = 13;
+document.querySelector('.guess').value = 34;// take input
