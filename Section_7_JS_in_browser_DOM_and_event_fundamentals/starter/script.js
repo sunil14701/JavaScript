@@ -29,21 +29,48 @@ document.querySelector('.guess').value = 34; // take input
 */
 // l73: handling click events
 
+const secretNumber = Math.floor(Math.random() * 19 + 1);
+// console.log(secretNumber);
+document.querySelector('.number').textContent = secretNumber;
 
+// highscore
+let hightScore = 0;
+let score = 20;
 
-document.querySelector('.check').addEventListener('click', 
-    // event handler
-    function () {
-//   console.log(document.querySelector('.guess').value);
-  const inputValue = Number(document.querySelector('.guess').value);
-  console.log(inputValue,typeof inputValue);
-    if(!inputValue){
-        document.querySelector('.message').textContent = 'No number entered.'
+document.querySelector('.check').addEventListener(
+  'click',
+  // event handler
+  function () {
+    //   console.log(document.querySelector('.guess').value);
+    const inputValue = Number(document.querySelector('.guess').value);
+    console.log(inputValue, typeof inputValue);
+    if (!inputValue) {
+      document.querySelector('.message').textContent = 'No number entered.';
+    } else {
+      if (score > 1) {
+        if (inputValue === secretNumber) {
+          document.body.style.backgroundColor = 'green';
+          document.querySelector('.message').textContent = 'Correct answer';
+          if (hightScore < score) hightScore = score;
+          document.querySelector('.highscore').textContent = hightScore;
+          document.querySelector('.score') = 20;
+        } else if (inputValue < secretNumber) {
+            document.querySelector('.message').textContent = 'Too small guess';
+        } else {
+            document.querySelector('.message').textContent = 'Too high guess';
+        }
+        document.querySelector('.score').textContent = --score;
     }else{
-        
+        document.querySelector('.score').textContent = --score;
+        document.querySelector('.message').textContent = 'Your lost';
+        document.body.style.backgroundColor = 'red';
+        // score = 20;
+        // document.querySelector('.score').textContent = score;
+    }
     }
     // if(inputValue  === 45) {
     //     document.querySelector('.message').textContent = 'Sunil Wins';
     // }
-});
-// addeventlistener: js engine executes the fx, we just pass the fx expression and do not call it 
+  }
+);
+// addeventlistener: js engine executes the fx, we just pass the fx expression and do not call it
