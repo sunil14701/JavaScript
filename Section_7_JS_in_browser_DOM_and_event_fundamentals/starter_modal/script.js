@@ -7,21 +7,22 @@ const closeModal = document.querySelector('.close-modal');
 const btnsOpenModal = document.querySelectorAll('.show-modal');
 // console.log(btnsOpenModal);
 
-
-const openModal = function(){
-    hiddenFeature.style.display = 'block';
-    overlay.style21
+const openModal = function () {
+  // hiddenFeature.style.display = 'block'; //length way
+  console.log('btn clicked');
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
 };
 
-const closeModalFx = function(){
-    hiddenFeature.style.display = 'none';
+const closeModalFx = function () {
+  console.log('cross clicked');
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+  console.log(btnsOpenModal[i].textContent);
+  btnsOpenModal[i].addEventListener('click', openModal);
+  closeModal.addEventListener('click', closeModalFx);
+  overlay.addEventListener('click',closeModalFx);
 }
-
-
-for(let i=0;i<btnsOpenModal.length;i++){
-    console.log(btnsOpenModal[i].textContent);
-    btnsOpenModal[i].addEventListener('click', openModal);
-    closeModal.addEventListener('click', closeModalFx)
-}
-
-
