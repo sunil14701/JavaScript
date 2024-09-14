@@ -20,9 +20,25 @@ const closeModalFx = function () {
   overlay.classList.add('hidden');
 };
 
+const closeModalFx2 = function (event) {
+  // console.log(event);
+  if (event.key === 'Escape') {
+    if (!modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+    }
+    if (!overlay.classList.contains('hidden')) {
+      overlay.classList.add('hidden');
+    }
+    // closeModalFx();
+  }
+};
+
 for (let i = 0; i < btnsOpenModal.length; i++) {
   console.log(btnsOpenModal[i].textContent);
   btnsOpenModal[i].addEventListener('click', openModal);
   closeModal.addEventListener('click', closeModalFx);
-  overlay.addEventListener('click',closeModalFx);
+  overlay.addEventListener('click', closeModalFx);
+  //   document.querySelector('html').addEventListener('keyup', closeModalFx2)
+  // listen on event every where on page
+  document.addEventListener('keydown', closeModalFx2);
 }
