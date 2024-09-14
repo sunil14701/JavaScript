@@ -93,13 +93,13 @@ const checkWin = function (event) {
         } else {
           canPlay = false;
           score--;
-          message = 'Your lost. Play again';
+          message = `Your lost. Press 'a' Play again. `;
           setBodyColor('red');
         }
         setScore(score);
       }
     } else {
-      message = `${hasWin ? 'You Win, want to' : 'You Lose❌'} Play Again`;
+      message = `${hasWin ? 'You Win, ' : 'You Lose❌'} Press 'a' Play Again`;
     }
 
     //   update message UI
@@ -108,22 +108,24 @@ const checkWin = function (event) {
 };
 
 // again functionality
-const playAgain = function () {
-  canPlay = true;
-  hasWin = false;
+const playAgain = function (event) {
+  if (event.key === 'a' || event.type === 'type') {
+    canPlay = true;
+    hasWin = false;
 
-  setBodyColor('#222');
+    setBodyColor('#222');
 
-  // new secret number
-  secretNumber = calcSecretNumber();
-  setSecretNumber('15rem', '?');
-  message = 'Start guessing...';
-  displayMessage(message);
-  document.querySelector('.guess').value = '';
+    // new secret number
+    secretNumber = calcSecretNumber();
+    setSecretNumber('15rem', '?');
+    message = 'Start guessing...';
+    displayMessage(message);
+    document.querySelector('.guess').value = '';
 
-  // reset backend score and UI
-  score = 20;
-  setScore(score);
+    // reset backend score and UI
+    score = 20;
+    setScore(score);
+  }
 };
 
 // addeventlistener: js engine executes the fx, we just pass the fx expression and do not call it
@@ -134,5 +136,6 @@ guessInput.addEventListener('keyup', checkWin);
 // challaenge #1
 // attact event listner to again btn
 document.querySelector('.again').addEventListener('click', playAgain);
+document.querySelector('body').addEventListener('keyup', playAgain);
 
 // made code DRY
