@@ -67,40 +67,44 @@ const updateHighScore = function (highScore) {
   }
 };
 // event handler, pass anynanomas fx
-const checkWin = function () {
-  const inputValue = Number(document.querySelector('.guess').value);
-  //   console.log(inputValue, typeof inputValue, secretNumber); // check secret number
-  if (canPlay) {
-    if (!inputValue) {
-      message = 'No number entered.';
-    } else {
-      if (score > 1) {
-        if (inputValue === secretNumber) {
-          hasWin = true;
-          canPlay = false;
-          setBodyColor('green');
-          setSecretNumber('30rem', secretNumber);
-          message = 'Correct answer';
-          updateHighScore(hightScore);
-        } else {
-          message =
-            inputValue < secretNumber ? 'Too small guess' : 'Too high guess';
-          score--;
-        }
-      } else {
-        canPlay = false;
-        score--;
-        message = 'Your lost. Play again';
-        setBodyColor('red');
-      }
-      setScore(score);
-    }
-  } else {
-    message = `${hasWin ? 'You Win, want to' : 'You Lose❌'} Play Again`;
-  }
+const checkWin = function (event) {
+  // console.log(event);
+  if (event.type === 'click' || event.key === 'Enter') {
+    const inputValue = Number(document.querySelector('.guess').value);
 
-  //   update message UI
-  displayMessage(message);
+    //   console.log(inputValue, typeof inputValue, secretNumber); // check secret number
+    if (canPlay) {
+      if (!inputValue) {
+        message = 'No number entered.';
+      } else {
+        if (score > 1) {
+          if (inputValue === secretNumber) {
+            hasWin = true;
+            canPlay = false;
+            setBodyColor('green');
+            setSecretNumber('30rem', secretNumber);
+            message = 'Correct answer';
+            updateHighScore(hightScore);
+          } else {
+            message =
+              inputValue < secretNumber ? 'Too small guess' : 'Too high guess';
+            score--;
+          }
+        } else {
+          canPlay = false;
+          score--;
+          message = 'Your lost. Play again';
+          setBodyColor('red');
+        }
+        setScore(score);
+      }
+    } else {
+      message = `${hasWin ? 'You Win, want to' : 'You Lose❌'} Play Again`;
+    }
+
+    //   update message UI
+    displayMessage(message);
+  }
 };
 
 // again functionality
@@ -123,8 +127,10 @@ const playAgain = function () {
 };
 
 // addeventlistener: js engine executes the fx, we just pass the fx expression and do not call it
-document.querySelector('.check').addEventListener('click', checkWin);
-
+const checkBtn = document.querySelector('.check');
+checkBtn.addEventListener('click', checkWin);
+const guessInput = document.querySelector('.guess');
+guessInput.addEventListener('keyup', checkWin);
 // challaenge #1
 // attact event listner to again btn
 document.querySelector('.again').addEventListener('click', playAgain);
