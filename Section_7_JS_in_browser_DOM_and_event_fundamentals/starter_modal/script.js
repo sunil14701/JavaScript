@@ -33,12 +33,13 @@ const closeModalFx2 = function (event) {
   }
 };
 
+// attach event listners to btns
 for (let i = 0; i < btnsOpenModal.length; i++) {
   console.log(btnsOpenModal[i].textContent);
   btnsOpenModal[i].addEventListener('click', openModal);
-  closeModal.addEventListener('click', closeModalFx);
-  overlay.addEventListener('click', closeModalFx);
-  //   document.querySelector('html').addEventListener('keyup', closeModalFx2)
-  // listen on event every where on page
-  document.addEventListener('keydown', closeModalFx2);
 }
+closeModal.addEventListener('click', closeModalFx);
+overlay.addEventListener('click', closeModalFx);
+//   document.querySelector('html').addEventListener('keyup', closeModalFx2)
+// listen on event every where on page
+document.addEventListener('keydown', closeModalFx2);
