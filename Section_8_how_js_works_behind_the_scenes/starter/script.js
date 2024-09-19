@@ -152,7 +152,10 @@ calcAge(1991);
 //    b. scope chain
 //    c. this keyword
 
-// hoisting: makes some types of variables accessible in the code before they are actually declared. 'variables lifted to the top of their scope.'
+// hoisting: makes some types of variables accessible in the code before they are actually declared. 'variables lifted to the top of their scope'. behind the scenes: before execution, code is scanned for variabls declarations and for each variable a new propery is created in the environment object.
+
+// hoisitng do not work same for all variable types:
+
 
 
 
@@ -256,12 +259,17 @@ addArrow(1,2);
 */
 
 // l99 primitives vs objects
+// primitives: number, string, boolean, undefined, null, symbol, bigint etc.
+// objects: everything except primitive datatypes are object. eg: arrays, fx, object literals
+
+// primitve
 let age = 30;
 let oldAge = age;
 age = 31;
 console.log(age);
 console.log(oldAge);
 
+// object
 const me = {
   name: 'jonas',
   age: 30,
@@ -271,3 +279,5 @@ const friend = me;
 friend.age = 27;
 console.log(me);
 console.log(friend);
+
+// listen i am leaving this section and do it on one day when i am free.
