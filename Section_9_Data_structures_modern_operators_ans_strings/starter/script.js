@@ -293,3 +293,9 @@ if(restaurant.orderPizza){
 }
 
 restaurant.orderPizza && restaurant.orderPizza('musrooms', 'sauce');// if first one is true than proceed further
+
+// l109: the nullish coalescing operator
+// idea: check nullish value(null or undefined) and not falsy values
+restaurant.numGuest = 0;
+const guest1Correct = restaurant.numGuest ?? 10;
+console.log(guest1Correct);
