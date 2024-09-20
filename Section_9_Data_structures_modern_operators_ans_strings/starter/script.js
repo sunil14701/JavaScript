@@ -218,6 +218,7 @@ console.log(restaurantCopy);// changes reflected on nested object for both
 
 */
 
+/*
 // l107: rest pattern and parameters
 // rest pattern: syntax same as spread operator, but works opposite. 
 // spread operator: unpack the array; rest patterns: pack elements into the arrays.
@@ -259,3 +260,36 @@ console.log(add(...x));// why we are not just passing a single array? by using s
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinich');
 restaurant.orderPizza();
+
+*/
+
+// l108 short circuiting(&& and ||)
+// logical operator: use any data type, return any data type, short-circuiting
+
+// for OR operator if all value is truthy value than that first truthy value will be returned, if all values are falsy than last element would be output
+// OR operator short circuit when first value is truthy
+console.log('---OR---')
+console.log(3 || 'Jonas')// -> o/p = 3
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(null || undefined);
+
+// restaurant.numGuest = 23;// 0 is a falsy value so it will fail in 0. sol in next lecture
+const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guests1);
+const guests2 = restaurant.numGuest || 10;//leverage short circuting to set default values
+console.log(guests2);
+
+console.log('---AND---')
+// AND operator short circuit when there  is falsy value, if all are truthy value than last value will be returned
+console.log(0 && 'Jonas');
+console.log('Jonas' && undefined);
+console.log('Jonas' && 12);
+ 
+// practical eg
+if(restaurant.orderPizza){
+  restaurant.orderPizza('musrooms', 'sauce');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('musrooms', 'sauce');// if first one is true than proceed further
