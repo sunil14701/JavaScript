@@ -45,6 +45,10 @@ const restaurant = {
 
   orderPasta: function(ing1, ing2, ing3){
     console.log(`here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+  orderPizza: function(mainIngredient, ...otherIngredients){
+    console.log(mainIngredient);
+    console.log(otherIngredients);
   }
 };
 
@@ -143,6 +147,7 @@ restaurant.orderDelivery({
 });
 */
 
+/*
 // 106 the spread operator(ES6)
 // spread operator: unpacking all the array elements at once.
 const arr = [7,8,9];
@@ -211,3 +216,46 @@ restaurantCopy.mainMenu[0] = 'apple';
 console.log(restaurant);
 console.log(restaurantCopy);// changes reflected on nested object for both
 
+*/
+
+// l107: rest pattern and parameters
+// rest pattern: syntax same as spread operator, but works opposite. 
+// spread operator: unpack the array; rest patterns: pack elements into the arrays.
+
+
+// 1. destucturing
+// SPREAD, bcs on right side of = operator
+const arr = [1,2, ...[3,4]];
+
+// REST, bcs on left side of = opertor. why rest name is given bcs rest of remaninig element will be given to new array. rest collect those element that were unused in destructuring assignment
+const [a, b, ...others] = [1,2,3,4,5];
+console.log(a, b, others);
+
+// the rest pattern must be the last. it will only collect last elements. there can only be only one rest pattern
+const [pizza,,Risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, Risotto, otherFood)
+
+
+// objects
+const { sat,...weekDays} = restaurant.openingHours;
+console.log(sat);
+console.log(weekDays);
+
+// 2. functions
+
+// using rest parameters
+const add = function(...args){
+  let sum = 0;
+  for(let i=0;i<args.length;i++){
+    sum += args[i];
+  }
+  return sum;
+}
+
+console.log(add(1,2,3,4,5));
+
+const x = [23, 5,7];
+console.log(add(...x));// why we are not just passing a single array? by using spread operator we can pass both variables and array at the same time
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinich');
+restaurant.orderPizza();
