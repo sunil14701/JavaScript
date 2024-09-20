@@ -35,8 +35,16 @@ const restaurant = {
       close: 24,
     },
   },
+  // destructuring obj in params of fx
+  orderDelivery: function ({ time='20:00', address, mainIndex=0, starterIndex=1 }) {
+    // console.log(obj);
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} at ${time}`
+    );
+  },
 };
 
+/*
 // l101: section intro
 // focus on modern JS, built in data structures(DS) like objects, map, arrays. modern E6 operators like optional chaining, destructing. work with string
 
@@ -81,5 +89,50 @@ console.log(i, j1,j2);
 const [p,q=12,r=23] = [1,2];
 console.log(p, q, r);
 
-
 // theme of section: food delivery app
+
+*/
+
+// l105: destructing objects
+// curly braces to destructing, have to write exact property name to extract from object. in object order of element does not matter. very usefull in API calls
+const { name, openingHours, categories, values } = restaurant;
+console.log(name, openingHours, categories, values);
+
+// add custom names to extracted items
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// defualt values: usefull when data is unknown
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj); // in round brackets
+console.log(a, b);
+
+// nested objects
+const {
+  fri: { open: o = 10, close: c = 18 },
+} = hours;
+console.log(o, c);
+
+// passing obj in fx. why? as the number of parameters increases
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'mera ghar hai',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+// default values in fx
+restaurant.orderDelivery({
+  address: 'mera ghar hai',
+});
