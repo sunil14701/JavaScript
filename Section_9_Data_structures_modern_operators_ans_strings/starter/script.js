@@ -42,6 +42,10 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} at ${time}`
     );
   },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
+  }
 };
 
 /*
@@ -93,6 +97,7 @@ console.log(p, q, r);
 
 */
 
+/*
 // l105: destructing objects
 // curly braces to destructing, have to write exact property name to extract from object. in object order of element does not matter. very usefull in API calls
 const { name, openingHours, categories, values } = restaurant;
@@ -136,3 +141,73 @@ restaurant.orderDelivery({
 restaurant.orderDelivery({
   address: 'mera ghar hai',
 });
+*/
+
+// 106 the spread operator(ES6)
+// spread operator: unpacking all the array elements at once.
+const arr = [7,8,9];
+const badNewArr = [1,2,arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+const newArr0 = [1,2,arr];
+const newArr = [1,2,...arr];// take all ele out of array and add it manullay. new array is generated 
+// newArr.push(...arr);
+console.log(newArr0);
+console.log(newArr);
+
+// destructuing of array
+// const [a,b,c] = arr;
+// console.log(a,b,c)
+
+// in fx: pass multiple ele into a fx like below
+console.log(...newArr);
+
+// add item in array
+const newMenu =  [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// de-structuring
+// const [a,b] = [...restaurant.mainMenu];// the spread operator takes all the element from array and it also does'nt create new variable. so we can only only use where we need values separted by commas.
+const [a,b] = restaurant.mainMenu;
+console.log(a,b);
+
+// usecases of spread opertor
+// 1. create shallow copies of arrays. means upto 1 lvl.
+const mainMenuCopy = [...restaurant.mainMenu];
+// mainMenuCopy[0] = 'apple';
+// console.log(mainMenuCopy);
+// console.log(restaurant.mainMenu);
+
+
+// 2. merge two arrays together.
+const mergedMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(mergedMenu);
+
+//note: spread operators works on all iterables(arrays, strings, maps, sets, but not objects)
+const firstName = 'Sunil';
+const letters = [...firstName, ' ', 'S.']
+console.log(letters);
+// note: we can only build a spread operator when building an array or when we pass value into a fx.
+// console.log(`${...str} Jonas`); this will not work
+
+// pass valueS to fx with spread operator. real world usecase
+// const ingredients = [];
+// for(let i=0;i<3;i++){
+//   const ing = prompt('Let\'s make pasta ingredient');
+//   ingredients.push(ing);
+// }
+
+// restaurant.orderPasta(...ingredients);
+
+// since 2018, spread operator works on objects as well
+const newRestaurant = {founderIn:1998,...restaurant, founder:'Jonas'};
+console.table(newRestaurant);
+
+// instead of using assign fx on object we can use spread operator
+// shallow copy on objects: means upto lvl 1
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Lakshman groups';
+restaurantCopy.mainMenu[0] = 'apple';
+console.log(restaurant);
+console.log(restaurantCopy);// changes reflected on nested object for both
+
