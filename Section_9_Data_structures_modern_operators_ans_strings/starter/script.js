@@ -36,20 +36,25 @@ const restaurant = {
     },
   },
   // destructuring obj in params of fx
-  orderDelivery: function ({ time='20:00', address, mainIndex=0, starterIndex=1 }) {
+  orderDelivery: function ({
+    time = '20:00',
+    address,
+    mainIndex = 0,
+    starterIndex = 1,
+  }) {
     // console.log(obj);
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} at ${time}`
     );
   },
 
-  orderPasta: function(ing1, ing2, ing3){
+  orderPasta: function (ing1, ing2, ing3) {
     console.log(`here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
-  orderPizza: function(mainIngredient, ...otherIngredients){
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
-  }
+  },
 };
 
 /*
@@ -268,8 +273,8 @@ restaurant.orderPizza();
 
 // for OR operator if all value is truthy value than that first truthy value will be returned, if all values are falsy than last element would be output
 // OR operator short circuit when first value is truthy
-console.log('---OR---')
-console.log(3 || 'Jonas')// -> o/p = 3
+console.log('---OR---');
+console.log(3 || 'Jonas'); // -> o/p = 3
 console.log('' || 'Jonas');
 console.log(true || 0);
 console.log(undefined || null);
@@ -278,24 +283,55 @@ console.log(null || undefined);
 // restaurant.numGuest = 23;// 0 is a falsy value so it will fail in 0. sol in next lecture
 const guests1 = restaurant.numGuest ? restaurant.numGuest : 10;
 console.log(guests1);
-const guests2 = restaurant.numGuest || 10;//leverage short circuting to set default values
+const guests2 = restaurant.numGuest || 10; //leverage short circuting to set default values
 console.log(guests2);
 
-console.log('---AND---')
+console.log('---AND---');
 // AND operator short circuit when there  is falsy value, if all are truthy value than last value will be returned
 console.log(0 && 'Jonas');
 console.log('Jonas' && undefined);
 console.log('Jonas' && 12);
- 
+
 // practical eg
-if(restaurant.orderPizza){
+if (restaurant.orderPizza) {
   restaurant.orderPizza('musrooms', 'sauce');
 }
 
-restaurant.orderPizza && restaurant.orderPizza('musrooms', 'sauce');// if first one is true than proceed further
+restaurant.orderPizza && restaurant.orderPizza('musrooms', 'sauce'); // if first one is true than proceed further
 
 // l109: the nullish coalescing operator
 // idea: check nullish value(null or undefined) and not falsy values
 restaurant.numGuest = 0;
 const guest1Correct = restaurant.numGuest ?? 10;
 console.log(guest1Correct);
+
+// l110 logical assignmebt operators
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;//short hand for this below
+
+//OR logical assignment operator
+// rest1.numGuests ||= 10;// if curr value is falsy than 10 will be assigned
+// rest2.numGuests ||=10;
+
+//nullish(null or undefined) logical assignment operator
+rest1.numGuests ??= 10; // if curr value is falsy than 10 will be assigned
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANOYMOUS>';
+// rest2.owner = rest2.owner && '<ANOYMOUS>';
+
+// AND logival operator
+rest1.owner &&= '<ANOYMOUS>';// if value is falsy than no effect will take place
+rest2.owner &&= '<ANOYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
