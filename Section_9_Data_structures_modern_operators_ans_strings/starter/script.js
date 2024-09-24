@@ -339,3 +339,26 @@ console.log(rest2);
 */
 
 // l112 looping arrays: the for loop
+// new loop of array in ES6
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// regular for loop
+for(let i =0;i<menu.length;i++){
+  console.log(menu[i]);
+}
+
+// forof loop: continue and break can be used 
+for(const item of menu){
+  console.log(item);
+}
+
+// index of ele in forod
+for(const  [i,ele] of menu.entries()){
+  // console.log(item[0], item[1]);
+  // console.log(...item);// destructure the array
+  console.log(`${i}: ${ele}`); 
+}
+
+console.log(...menu.entries()); // see element in  array iterator
+console.log([...menu.entries()]); // see element in  array iterator
