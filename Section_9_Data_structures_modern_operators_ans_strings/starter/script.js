@@ -268,6 +268,7 @@ restaurant.orderPizza();
 
 */
 
+/*
 // l108 short circuiting(&& and ||)
 // logical operator: use any data type, return any data type, short-circuiting
 
@@ -335,3 +336,6 @@ rest2.owner &&= '<ANOYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
+*/
+
+// l112 looping arrays: the for loop
