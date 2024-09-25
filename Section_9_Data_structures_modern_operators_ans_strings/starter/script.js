@@ -2,10 +2,10 @@
 
 // Data needed for a later exercise
 const flights =
-'_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const weekDays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']; 
+const weekDays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
 
 // enhanced object literals: precomputation of keys. values can be computed
 const openingHours = {
@@ -17,12 +17,15 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [`${2+3}`]: {
+  [weekDays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+  [Number(`${2 + 3}`)]: {
     open: 0, // Open 24 hours
     close: 24,
   },
 };
-
 
 const restaurant = {
   name: 'Classico Italiano',
@@ -46,7 +49,7 @@ const restaurant = {
   // ES6 enhanced object literals
   // 1 object new look
   openingHours,
-  
+
   // 2 method new look
   // orderPasta: function (ing1, ing2, ing3) {
   //   console.log(`here is your pasta with ${ing1}, ${ing2}, ${ing3}`);
@@ -382,5 +385,53 @@ console.log(...menu.entries()); // see element in  array iterator
 console.log([...menu.entries()]); // see element in  array iterator
 */
 
+/*
 // l113 enhanced object literals
 console.log(restaurant);
+// 1. object new look: simple syntax
+// 2. method new look inside object
+// 3.precomputation in object key.
+*/
+
+// l114 optional chaining(?.)
+
+// simple way to find out optional properties w/o getting errors
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+
+// with optional chaining(OC): follow nullish concept
+// will throw nullish value whenever nullish value is encountered
+console.log(restaurant.openingHours.mon?.open); // if mon property is not nullish than open property will be exexutes else nullish
+console.log(restaurant.openingHours?.mon?.open); // we can not check a property if prev part is null but via optional chaining return first null
+
+// real application
+const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+for (let i = 0; i < days.length; i++) {
+  const open = restaurant.openingHours[days[i]]?.open ?? 'closed';
+  console.log(`On ${days[i]}, we open at ${open}`);
+}
+
+console.log(restaurant.openingHours);
+
+// OC on methods: check if method exists
+console.log(restaurant.order2?.(0, 1) ?? 'Method do not exist');
+console.log(restaurant.order?.(0, 1) ?? 'Method do not exist');
+
+// arrays
+const users = [
+  
+];
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'Hwllo@gmail.com',
+//   },
+// ];
+console.log(users[0]?.name ?? 'user array empty');
+
+if(users.length > 0) console.log(users[0].name);
+else console.log('user array empty');
+
+// ?? and ?. we introduced in same year os they kinda complement each other
+
