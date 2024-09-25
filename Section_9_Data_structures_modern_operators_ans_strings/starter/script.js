@@ -374,7 +374,7 @@ for(const item of menu){
   console.log(item);
 }
 
-// index of ele in forod
+// index of ele in forof loop
 for(const  [i,ele] of menu.entries()){
   // console.log(item[0], item[1]);
   // console.log(...item);// destructure the array
@@ -393,6 +393,7 @@ console.log(restaurant);
 // 3.precomputation in object key.
 */
 
+/*
 // l114 optional chaining(?.)
 
 // simple way to find out optional properties w/o getting errors
@@ -435,3 +436,28 @@ else console.log('user array empty');
 
 // ?? and ?. we introduced in same year os they kinda complement each other
 
+*/
+
+// l115 looping objects" objects keys, values and entries
+
+// keys
+const keys = Object.keys(openingHours);
+console.log(keys);
+
+
+let openStr = `We are open ${keys.length} days that are: `
+
+for(const day of keys){
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// values
+const values = Object.values(openingHours);
+console.log(values);
+
+// loop entire object
+const entries = Object.entries(openingHours);
+for(const [key,{open, close}] of entries){
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
