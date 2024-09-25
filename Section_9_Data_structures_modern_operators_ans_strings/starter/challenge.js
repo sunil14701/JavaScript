@@ -4,57 +4,56 @@
 
 // API data
 const game = {
-    team1: 'Bayern Munich',
-    team2: 'Borrussia Dortmund',
-    players: [
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
     [
-    'Neuer',
-    'Pavard',
-    'Martinez',
-    'Alaba',
-    'Davies',
-    'Kimmich',
-    'Goretzka',
-    'Coman',
-    'Muller',
-    'Gnarby',
-    'Lewandowski',
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
     ],
     [
-    'Burki',
-    'Schulz',
-    'Hummels',
-    'Akanji',
-    'Hakimi',
-    'Weigl',
-    'Witsel',
-    'Hazard',
-    'Brandt',
-    'Sancho',
-    'Gotze',
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
     ],
-    ],
-    score: '4:0',
-    scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
-    'Hummels'],
-    date: 'Nov 9th, 2037',
-    odds: {
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
     team1: 1.33,
     x: 3.25,
     team2: 6.5,
-    },
-    };
+  },
+};
 
 // t1
 // const players1 = game.players[0];
 // const players2 = game.players[1];
 
 // use destructuring
-const [players1, players2] = game.players
-console.log(players1,players2);
+const [players1, players2] = game.players;
+console.log(players1, players2);
 
 // t2
-// use REST 
+// use REST
 const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 
@@ -68,25 +67,61 @@ console.log(players1Final);
 
 // t5
 // const {team1,x: draw,team2} = game.odds;
-const {odds :{team1, team2, x: draw}} = game;
+const {
+  odds: { team1, team2, x: draw },
+} = game;
 console.log(team1);
 console.log(draw);
 console.log(team2);
 
-// t6 
-const printGoals = function(...players){
-    for(let i=0;i<players.length;i++){
-        console.log(players[i], players.length);
-    }
-}
+// t6
+const printGoals = function (...players) {
+  for (let i = 0; i < players.length; i++) {
+    console.log(players[i], players.length);
+  }
+};
 
-printGoals('Davies', 'Muller', 'Lewandowski','Kimmich');
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 printGoals(...game.scored);
 
 // t7
 
 team1 < team2 && console.log('team1 will win');
-team1 > team2 && console.log('team2 will win')
+team1 > team2 && console.log('team2 will win');
 team1 == team2 && console.log('Draw will happen');
 
+// coding challenge #2
+console.log(`-------#2-------`);
+
+// t1
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+}
+
+// t2
+const avg = function (odds) {
+  const numbers = Object.values(odds);
+  const len = numbers.length;
+  let total = 0;
+  for (let i = 0; i < len; i++) {
+    total += numbers[i];
+  }
+  return total / len;
+};
+
+console.log('Average of odds: ', avg(game.odds));
+
+// t3
+for (const [team, points] of Object.entries(game.odds)) {
+  console.log(`Odd of ${game[team] ?? 'draw'}: ${points}`);
+}
+
+// t4
+const scorers = {};
+for (let i = 0; i < game.scored.length; i++) {
+//   if (!scorers[game.scored[i]]) scorers[game.scored[i]] = 1;
+//   else scorers[game.scored[i]]++;
+  scorers[game.scored[i]]? scorers[game.scored[i]]++: scorers[game.scored[i]] =1;
+}
+console.log(scorers);
 
