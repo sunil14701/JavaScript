@@ -464,3 +464,57 @@ for(const [key,{open, close}] of entries){
 }
 
 */
+
+
+// l 117 sets
+// in ES6 set and maps were introduced as data structure
+// set: collection of unique values.
+const orderSet = new Set(['Pasta','Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(orderSet);
+
+// set are iterables, order of ele of set are irrelivent, unique eles
+console.log(new Set('Sting'));
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('sk'));
+
+orderSet.add('Garlic bread');
+orderSet.add('Garlic bread');
+orderSet.delete('Pizza');
+console.log(orderSet);
+// orderSet.clear();
+console.log(orderSet);
+
+
+// set has no indexs, so this for loop not work
+for(let i=0;i<orderSet.size;i++){
+  console.log(orderSet[i]);//undefined
+}
+
+// iterating set
+for(const ele of orderSet){
+  console.log(ele);
+}
+
+// usecase: remove duplicate values from arrays
+const staff = ['Waiter', 'Chef', 'Chef', 'Manager'];
+const diffStaff = new Set(staff);
+console.log(diffStaff);
+
+// convert set into array
+const  uniqueStaff0 = [...new Set(staff)];
+const uniqueStaffLen = new Set(staff).size;
+const uniqueStaff = [...diffStaff];//spread operator work on all iterables
+console.log(uniqueStaff0);
+console.log(uniqueStaffLen);
+
+// diff letters in unique strings
+console.log(new Set('sunill').size);
+
+// sets are not as imp as arrays.
+
+
+
+
+
+
