@@ -465,7 +465,7 @@ for(const [key,{open, close}] of entries){
 
 */
 
-
+/*
 // l 117 sets
 // in ES6 set and maps were introduced as data structure
 // set: collection of unique values.
@@ -512,9 +512,52 @@ console.log(uniqueStaffLen);
 console.log(new Set('sunill').size);
 
 // sets are not as imp as arrays.
+*/
+
+// l118: maps fundamentals
+// map is lot more useful than sets
+// map is a data structure to map values to keys. just like object data is stroed in key value pairs in maps.
+// diff between maps and object -> in maps the keys can have any type(object, other maps, arrays, etc); in object the keys are always string.
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'france, italy');
+
+console.log(rest.set(2, 'chandigarh')); // set method returns the updated map
+
+// map chaining
+rest
+  .set('categories', restaurant.categories)
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D') //as set returns updated map os we can update map again
+  .set(false, 'We are closed :(');
+console.log(rest);
+
+console.log(rest.get(true));
+console.log(rest.get('true')); // datatype of key maters
+console.log(rest);
+const time = 2;
+console.log(rest.get(time >= rest.get('open') && time <= rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete('categories');
+console.log(rest.has('categories'));
+
+rest.clear();
+console.log(rest);
+console.log(rest.size);
 
 
+// how to get array/object as map kays
+rest.set([1,2], 'test');
+console.log(rest.get([1,2]));// undefined; eventhought we are passing the same values in array but they are not the same array, address is diff in heap(they are not the same object in heap)
 
+// this will work, have to pass same object 
+const arr = [1,2];
+rest.set(arr, 'best');
+console.log(rest.get(arr));
 
-
-
+// DOM in map key: this topic may unlock advance fx in js
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest); 
