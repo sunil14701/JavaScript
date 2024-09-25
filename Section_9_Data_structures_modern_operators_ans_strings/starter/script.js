@@ -514,6 +514,7 @@ console.log(new Set('sunill').size);
 // sets are not as imp as arrays.
 */
 
+/*
 // l118: maps fundamentals
 // map is lot more useful than sets
 // map is a data structure to map values to keys. just like object data is stroed in key value pairs in maps.
@@ -561,3 +562,44 @@ console.log(rest.get(arr));
 // DOM in map key: this topic may unlock advance fx in js
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest); 
+*/
+
+// l119: iterations
+
+// set map elements via array
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JS'],
+  [4, 'C++'],
+  ['correct', 3],
+  [true, 'Correct answer'],
+  [false, 'Try again'],
+]);
+console.log(question);
+
+// convert object to map
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap); // but all the keys of objet is string data type
+
+// maps are also iterable
+// for(const [key, value] of Object.entries(openingHours)) // bcs object is not iterable
+
+console.log(`Question: ${question.get('question')}`);
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Options ${key}: ${value}`);
+}
+// const answer = Number(prompt(`Enter your answer?`));
+const answer = 3;
+console.log(answer);
+console.log(question.get(answer === question.get('correct')));
+
+// console.log('Answer: ', question.get((question.get('correct'))));
+
+// map to array
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+console.log([...question.entries()])
+// when to use map and objects;
