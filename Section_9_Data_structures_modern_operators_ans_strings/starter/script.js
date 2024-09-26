@@ -564,6 +564,7 @@ rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest); 
 */
 
+/*
 // l119: iterations
 
 // set map elements via array
@@ -603,3 +604,61 @@ console.log([...question.keys()]);
 console.log([...question.values()]);
 console.log([...question.entries()])
 // when to use map and objects;
+*/
+
+// l120 summary which data structure to use
+// dealing and working with data is the main thing we do as developers.
+
+// Sources of data 
+// 4 Data structure -> array, object, map, set.
+// 1. from the program itself: data written directy in source code(eg: status messages)
+// 2 from the UI: data input from the user or data written in DOM(eg: tasks in todo app)
+// 3. from external sources: data fetched from example from web API(recipe objects)
+// colletion of data -> data structure -> 1. simple list(arrays/sets) 2. key/value pair(object or maps).
+
+// API: application programming interface -> get data from other web servers. data from web api comes in JSON format.
+
+// other buildin data structures
+// 1. weak maps
+// 2. weak set
+
+// non-built in data structure
+// 1. stack 
+// 2. queues
+// 3. linked list
+// 4. trees
+// 5. hash tables
+
+// diff 
+// 1. arrays 
+// a. tasks = ['code', 'eat', 'code'];
+// b. use when you need ordered list of values(might contain duplicates)
+// c. use when you need to manipulate data.
+
+// 2. sets
+// a. const tasks = new Set(['code', 'eat', 'eat', 'code']);
+// b. use when you need to work with unquie values
+// c. when high performance is really important -> search, insert and delete is faster
+// d. use to remove dulicates for array
+
+// 3 objects 
+// a. const obj = {
+//      task: 'code',
+//      date: 'today,
+//      repeat: true
+// }
+// b. more traditional key/value store. easier to write and access values with . and []. 
+// c. use when you need to include fx(method). use this keyword in same object method, this is not in maps
+// d. use when working with JSON(can convert to map)
+
+// 4. maps
+// const tasks = new Map([
+//   ['task', 'code'],
+//   ['date', 'today'],
+//   [false, 'start coding!'],
+// ]);
+// b. better performance, keys can have any data types, easy to iterate, easy to compute size.
+// c. use when you simply need to map key to values
+// d. use when you need keys that are not stirngs
+
+
