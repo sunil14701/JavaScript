@@ -663,3 +663,47 @@ console.log([...question.entries()])
 // d. use when you need keys that are not stirngs
 */
 
+// l122 working with string part1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(Number(plane[1]));
+console.log('Sunil'.length);
+console.log('Sunil'[3]);
+
+console.log(airline.indexOf('r')); //case-sensitive
+console.log(airline.indexOf('Air'));
+console.log(airline.lastIndexOf('r'));
+
+// strings are immutable
+console.log(airline.slice(4));
+console.log(airline.slice(4, -1));
+console.log(airline.slice(4, 5)); // len is 5-4 = 1
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.split(' ')[0]);
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+console.log(airline.split(' ')[airline.split(' ').length - 1]);
+console.log(airline.slice(-2));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  // return seat.search('B|E') != -1 ? true : false;
+
+  // m2
+  const endChar = seat.slice(-1);
+  if(endChar === 'B' || endChar === 'E') return true;
+  return false;
+};
+
+console.log((checkMiddleSeat('11E')));
+console.log((checkMiddleSeat('11C')));
+console.log((checkMiddleSeat('1B')));
+
+// Note: string are just primitives. why they have methods. JS is smart. when ever we call a string, JS will autoconvert to string primitve to string object. and now on this converted object methods are called. this process is called boxing(put our string in a box which is a object).
+console.log(new String('Jonas')); // string -> object
+
+// so whenever we call a method on a string boxing happens. when the operation is done, the object is converted back to string primitive. all string methods return primivites even if called on a string object
+console.log(typeof 'Sang');// primitive
+console.log(typeof new String('Sang'));// object
+console.log(typeof new String('Sang').slice(0));// string is returned
