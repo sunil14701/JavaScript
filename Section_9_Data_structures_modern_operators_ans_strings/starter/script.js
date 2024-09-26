@@ -606,6 +606,7 @@ console.log([...question.entries()])
 // when to use map and objects;
 */
 
+/*
 // l120 summary which data structure to use
 // dealing and working with data is the main thing we do as developers.
 
@@ -660,5 +661,5 @@ console.log([...question.entries()])
 // b. better performance, keys can have any data types, easy to iterate, easy to compute size.
 // c. use when you simply need to map key to values
 // d. use when you need keys that are not stirngs
-
+*/
 
