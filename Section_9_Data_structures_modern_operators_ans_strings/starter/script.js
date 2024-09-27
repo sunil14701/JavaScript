@@ -663,6 +663,7 @@ console.log([...question.entries()])
 // d. use when you need keys that are not stirngs
 */
 
+/*
 // l122 working with string part1
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
@@ -707,3 +708,53 @@ console.log(new String('Jonas')); // string -> object
 console.log(typeof 'Sang');// primitive
 console.log(typeof new String('Sang'));// object
 console.log(typeof new String('Sang').slice(0));// string is returned
+*/
+
+// l123: working with strings p2
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// fix capitaliation in name
+const passenger = 'jONas';
+console.log(passenger[0].toUpperCase() + passenger.slice(1).toLowerCase());
+
+// check mail 
+const email = 'hello@jonas.io';
+const loginEmail = '    Hello@Jonas.IO    \n';
+const processedEmail = loginEmail.trim().toLowerCase();// chaininig
+console.log(processedEmail);
+
+// trimStart(), trimEnd()
+
+// replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace(',','.').replace('£','$');
+console.log(priceUS);
+
+const anncouncement = 'All passengers come to boarding door door 23. Boarding door 23!';
+console.log(anncouncement.replace('door', 'gate'));// first occurance only
+console.log(anncouncement.replaceAll('door', 'gate'));
+
+// regular expression
+console.log(anncouncement.replace(/doof/g,'gate'));
+
+// boolean methods
+const plane = 'A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('A3'));
+console.log(plane.endsWith('neo'));
+
+
+// practice
+const checkBaggage = function(luggage){
+  luggage = luggage.toLowerCase();
+  if(!(luggage.includes('gun') || luggage.includes('Knife'))) console.log('you can board');
+  else console.log(`you can not board`);
+}
+
+checkBaggage('I have a laptop, some food and a pocket');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun as protection');
