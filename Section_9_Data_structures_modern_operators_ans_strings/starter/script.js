@@ -710,6 +710,7 @@ console.log(typeof new String('Sang'));// object
 console.log(typeof new String('Sang').slice(0));// string is returned
 */
 
+/*
 // l123: working with strings p2
 const airline = 'TAP Air Portugal';
 
@@ -758,3 +759,69 @@ const checkBaggage = function(luggage){
 checkBaggage('I have a laptop, some food and a pocket');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun as protection');
+
+*/
+
+// l124 working with strings p3
+// split
+console.log('a+very+nice+string'.split('+'));
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(firstName, lastName);
+
+// join
+const fullName = ['Mr.', firstName, lastName.toUpperCase()].join('-');
+console.log(fullName);
+
+const toCapitilize = function (string) {
+  'capitlize each letter of word in string';
+  // m1
+  const words = string.split(' ');
+  const capitalWords = [];
+  for (let i = 0; i < words.length; i++) {
+    // m1
+    // const firstLetterUppercase = words[i].slice(0,1).toUpperCase();
+    // capitalWords.push(firstLetterUppercase + words[i].slice(1));
+
+    // m2
+    capitalWords.push(words[i].replace(words[i][0], words[i][0].toUpperCase()));
+  }
+  const capitalSting = capitalWords.join(' ');
+  return capitalSting;
+};
+
+const passenger = 'jessica ann smith davis';
+console.log(toCapitilize(passenger));
+console.log(toCapitilize('jonas schmedtmann'));
+
+// padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '$'));
+console.log('Jonas'.padEnd(25, '*'));
+console.log('Jonas'.padStart(25, '*').padEnd(35, '@'));
+
+// real usecase
+const maskCreditCard = function (creditCard) {
+  const lenCard = creditCard.length;
+
+  const lastFourDigits = creditCard.slice(-4);
+  const hiddenCard = lastFourDigits.padStart(lenCard, '*');
+  return hiddenCard;
+};
+
+const creditCard = 123456781234 + ''; // convet to string
+console.log(maskCreditCard(creditCard));
+console.log(maskCreditCard(String(3543553532543535)));
+console.log(maskCreditCard('354355353254353523456785643467'));
+
+// repeat
+const msg = ' Bad weather... All Departures Delayed...';
+console.log(msg.repeat(2));
+
+const planeInLine = function(n){
+  console.log(`There are ${n} planes waiting in line ${'✈️'.repeat(n)}.`);
+}
+planeInLine(3);
+planeInLine(5);
+planeInLine(0);
+
+// more string method in MDN 
