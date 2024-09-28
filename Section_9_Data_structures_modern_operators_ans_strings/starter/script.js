@@ -1,8 +1,8 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 const weekDays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
@@ -828,4 +828,27 @@ planeInLine(0);
 // more string method in MDN 
 */
 
-// 
+// l126: string methods practice
+
+const cleanData = function(flights){
+  const rows = flights.split('+');
+  for(let i=0;i<rows.length;i++){
+    const singleflightData = rows[i].split(';');
+    const time = singleflightData[3].split(':').join('h');
+    const source = singleflightData[1].slice(0,3).toUpperCase();
+    const dest = singleflightData[2].slice(0,3).toUpperCase();
+    
+    const flightPrefix = singleflightData[0].slice(1)
+    const words = flightPrefix.split('_').join(' ');
+    let delayed = '';
+    if(flightPrefix.startsWith('Delayed')){
+      delayed = '🔴';
+    }
+    console.log(`${delayed} ${words} from ${source} to ${dest} (${time})`.padStart(45));
+  }
+
+}
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+cleanData(flights);
