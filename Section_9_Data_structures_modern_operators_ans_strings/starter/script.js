@@ -762,6 +762,7 @@ checkBaggage('Got some snacks and a gun as protection');
 
 */
 
+/*
 // l124 working with strings p3
 // split
 console.log('a+very+nice+string'.split('+'));
@@ -825,3 +826,6 @@ planeInLine(5);
 planeInLine(0);
 
 // more string method in MDN 
+*/
+
+// 
