@@ -183,6 +183,7 @@ const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
 greetArrow('Hey,')('Kumar');
 */
 
+/*
 // l134: the call and apply methods
 const lufthansa = {
   airline: 'Lufthansa',
@@ -285,3 +286,6 @@ const addTax2 = function(rate){
 const addTax2VAT = addTax2(0.20);
 addTax2VAT(100);
 
+*/
+
+//
