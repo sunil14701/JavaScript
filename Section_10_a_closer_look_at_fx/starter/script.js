@@ -73,6 +73,8 @@ checkIn(flight,jonas);
 // passing by pass/refernce
 // JS has no passing by reference, only passing by value is there. for object we are passing by value, we are just passing the memory address of the object in a new variable
 */
+
+/*
 // l131: first class and higher order fx
 // first class fx enables us to write higher order fx
 
@@ -114,3 +116,44 @@ function count() {
 // they are diff
 // first class fx: its just a feature. all this means is fx is value. it is a concept.
 // bcs the lang supports first class fx higer order for possible
+*/
+
+// l132: fxs accepting callback fxs
+const oneWord = function(str){
+    return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function(str){
+    const [firstWord, ...otherWords] = str.split(' ');
+    return [firstWord.toUpperCase(), ...otherWords].join(' ');
+}
+
+// higher order fx: takes in a fx
+const transformer = function(str, fx){
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fx(str)}`);
+
+    // fxs has properties and methods
+    console.log(`Transformed by: ${fx.name}`);
+}
+
+// passing a callback fx(we do not call them self but JS will call them) to higher order fx
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+
+// js uses callbacks all the time
+let cnt = 1;
+const high5 = function(){
+    console.log(`(⌐■_■) ${cnt++}`);
+}
+
+// eg1
+document.body.addEventListener('click', high5);// here addevenlister is a higher order fx and high5 is callback fx
+
+// eg2: higher orderfx
+['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+// why are call back fxs used in js?
+// 1. make our code more reusable and interconnnected parts.
+// 2. call back fxs allows us to create abstraction(hide the code implementaion).  more about abstracion in OOPS.
