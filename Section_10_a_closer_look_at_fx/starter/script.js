@@ -192,19 +192,19 @@ const lufthansa = {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
-    this.bookings.push({flight:`${this.iataCode}${flightNum}`,name});
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
   },
 };
 
-lufthansa.book(239,'Jonas');
-lufthansa.book(635,'Sunil');
+lufthansa.book(239, 'Jonas');
+lufthansa.book(635, 'Sunil');
 console.log(lufthansa);
 
 const euroWings = {
-    airline : 'Eurowings',
-    iataCode: 'EW',
-    bookings: [],
-}
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
 const book = lufthansa.book;
 // console.log(book);
@@ -212,20 +212,20 @@ const book = lufthansa.book;
 // Does not work; as now method -> fx
 // book('234', 'Sahil');// here this keyword is undefined, bcs in a regular fx call this keywords points to undefined in strict mode. so this keyword depend on how the fx is called
 
-// setting this keyword manually; 3 methods to do this. that are call, apply, bind method. fx is just object and object has methods 
-book.call(euroWings, '234', "rAHUL");// first argument = object that this keyword should be pointing
+// setting this keyword manually; 3 methods to do this. that are call, apply, bind method. fx is just object and object has methods
+book.call(euroWings, '234', 'rAHUL'); // first argument = object that this keyword should be pointing
 console.log(euroWings);
 
 book.call(lufthansa, 239, 'Mary Cooper');
 console.log(lufthansa);
 
 const swiss = {
-    airline: 'Swiss Air Lines',
-    iataCode : 'SW',
-    bookings : [],
-}
+  airline: 'Swiss Air Lines',
+  iataCode: 'SW',
+  bookings: [],
+};
 
-book.call(swiss,'455', 'Sanjay');// this keyword pointing to swiss object
+book.call(swiss, '455', 'Sanjay'); // this keyword pointing to swiss object
 console.log(swiss);
 
 // apply method : do exactly same thing but need array of argument after this keyword
@@ -237,4 +237,51 @@ console.log(swiss);
 book.call(swiss, ...flightData);
 console.log(swiss);
 
-// bind method is imp 
+// bind method is imp
+
+//before lec needed l135: the bind method
+// bind method also helps us to set this keyword to any function call. bind does not immediatly call the fx instead it returns new fx where this keyword is bound.
+
+const bookForEuroWing = book.bind(euroWings); // this will create a new fx which will set to eurowing object
+console.log(bookForEuroWing);
+bookForEuroWing(121, 'sk');
+console.log(euroWings);
+
+const bookForSwiss = book.bind(swiss);
+const bookForLuf = book.bind(lufthansa);
+
+// we can pre-set multiple arguments other than this keyword in bind method
+const bookForEuroWing23 = book.bind(euroWings, 23); // specifying parts of apps before hands -> common pattern -> partial application. means parts of application of original fx are already applied
+bookForEuroWing23('goku');
+bookForEuroWing23('Doremon');
+
+// with event listners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this); // this keyword is btn element. why? in event handler fx this keyword always point to the element on which the handler is attached to.
+  this.planes++;
+  console.log(this.planes);
+};
+
+const buyPlane = document.querySelector('.buy');
+buyPlane.addEventListener('click', lufthansa.buyPlane.bind(lufthansa)); // we have to attach a object to callback fx or this keyword will point to DOM object. we have to manually define the this keyword here. we should not use call as it will immediatly call the fx. so we need bind as it will not call but return a new fx
+lufthansa.buyPlane(); // this keyword is dynamic everytime. its depends who is calling.
+
+// partial application
+const addTax = (rate, value) => value + value * rate ;
+console.log(addTax(0.10,200));
+
+// use one tax all the time
+const addTax20 = addTax.bind(null, 0.20);// 1st keyword should be this keyword but we can also pass null
+console.log(addTax20(100));
+
+// challeng: above do by fx using return fx 
+const addTax2 = function(rate){
+  return function(value){
+    console.log(value + value *rate);
+  }
+};
+
+const addTax2VAT = addTax2(0.20);
+addTax2VAT(100);
+
