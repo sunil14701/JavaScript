@@ -118,6 +118,8 @@ function count() {
 // bcs the lang supports first class fx higer order for possible
 */
 
+/*
+
 // l132: fxs accepting callback fxs
 const oneWord = function(str){
     return str.replace(/ /g, '').toLowerCase();
@@ -157,3 +159,24 @@ document.body.addEventListener('click', high5);// here addevenlister is a higher
 // why are call back fxs used in js?
 // 1. make our code more reusable and interconnnected parts.
 // 2. call back fxs allows us to create abstraction(hide the code implementaion).  more about abstracion in OOPS.
+*/
+
+// l133: fx returning fx
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterMorning = greet('Good morning,');
+greeterMorning('Sunil');
+greeterMorning('Jonas'); //greeting varibale is comming from greet fx. it is possible because of clousers.
+
+greet('Hello,')('Sunil');
+
+// why fx returning fx? -> will be useful in programming paradigm in functinal programming.
+
+// challenge: above fx using arrow fx
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArrow('Hey,')('Kumar');
