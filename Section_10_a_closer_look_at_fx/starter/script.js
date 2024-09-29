@@ -29,6 +29,7 @@ createBooking('LH13',23,34);
 createBooking('LH13',undefined,34);// we can not skip the default parameters. use undefined to skip a defualt parameter
 */
 
+/*
 // l130: how passing arguments works: value vs reference
 const flight = 'LH234';// primitive type
 const jonas = {
@@ -71,3 +72,45 @@ checkIn(flight,jonas);
 
 // passing by pass/refernce
 // JS has no passing by reference, only passing by value is there. for object we are passing by value, we are just passing the memory address of the object in a new variable
+*/
+// l131: first class and higher order fx
+// first class fx enables us to write higher order fx
+
+// first class fx
+// JS treats fx as first class citizens, this means that fx are simply VALUES. fx are just another TYPE of object.
+
+// since objects are values we can use fx as many ways
+// 1. store fx in variables or methods
+const add = (a, b) => a + b;
+const counter = {
+  value: 23,
+  inc: function () {
+    this.value++;
+  },
+};
+
+// passing fx as arguments like in event listerner fx to objects
+
+// we can return fx from other fx.
+
+// we can call methods on fx
+// counter.inc.bind(fx);
+
+// Higher order fx
+// a fx that either receives anther fx as an argument or a fx that recieves a new fx or both. this is only possible bcs of first class fxs
+// 1. fx that receives another fx
+const greet = () => console.log(`hey jonas`);
+btn.addEventListner('click', greet); // here addEventListner is a higher order fx and greet fx is a first class fx aka callback fx.
+
+// 2 fx that returns new fx
+function count() {
+  let cnt = 0;
+  return function () {
+    cnt++;
+  };
+}// here count is a higher order fx which is returning a fx.
+
+// diff between first class fx and higher order fx
+// they are diff
+// first class fx: its just a feature. all this means is fx is value. it is a concept.
+// bcs the lang supports first class fx higer order for possible
