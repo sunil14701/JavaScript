@@ -161,6 +161,7 @@ document.body.addEventListener('click', high5);// here addevenlister is a higher
 // 2. call back fxs allows us to create abstraction(hide the code implementaion).  more about abstracion in OOPS.
 */
 
+/*
 // l133: fx returning fx
 const greet = function (greeting) {
   return function (name) {
@@ -180,3 +181,60 @@ greet('Hello,')('Sunil');
 const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArrow('Hey,')('Kumar');
+*/
+
+// l134: the call and apply methods
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({flight:`${this.iataCode}${flightNum}`,name});
+  },
+};
+
+lufthansa.book(239,'Jonas');
+lufthansa.book(635,'Sunil');
+console.log(lufthansa);
+
+const euroWings = {
+    airline : 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+}
+
+const book = lufthansa.book;
+// console.log(book);
+
+// Does not work; as now method -> fx
+// book('234', 'Sahil');// here this keyword is undefined, bcs in a regular fx call this keywords points to undefined in strict mode. so this keyword depend on how the fx is called
+
+// setting this keyword manually; 3 methods to do this. that are call, apply, bind method. fx is just object and object has methods 
+book.call(euroWings, '234', "rAHUL");// first argument = object that this keyword should be pointing
+console.log(euroWings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+    airline: 'Swiss Air Lines',
+    iataCode : 'SW',
+    bookings : [],
+}
+
+book.call(swiss,'455', 'Sanjay');// this keyword pointing to swiss object
+console.log(swiss);
+
+// apply method : do exactly same thing but need array of argument after this keyword
+const flightData = [567, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// apply is not used bcs if spread operator
+book.call(swiss, ...flightData);
+console.log(swiss);
+
+// bind method is imp 
