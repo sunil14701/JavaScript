@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -124,6 +124,7 @@ console.log(newArr3);
 // more at mdn docs
 */
 
+/*
 // 144 the new at method ES 2022
 const arr = [23, 11, 64];
 console.log(arr[0]);
@@ -138,3 +139,22 @@ console.log(arr.at(-34));
 // at method can be used in method chaining : combine multiple methods at same time
 // at methd also work on strings
 console.log('sunil'.at(-1));
+
+*/
+
+// l145: looping arras: for each
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const [i,money] of movements.entries()) {
+  if (money < 0) console.log(`user${i+1} widthdraw ${Math.abs(money)} dollar`);
+  else console.log(`user${i+1} deposit ${money} dollar`);
+}
+
+// foreach -> higher order fx that req are call back fx
+console.log(''.padEnd(10,'-'));
+movements.forEach(function (money, i, array) {//1st -> curr ele, 2nd -> index, 3rd -> array
+  if (money < 0) console.log(`user${i+1} widthdraw ${Math.abs(money)} dollar`);
+  else console.log(`user${i+1} deposit ${money} dollar`);
+});
+// we use a callback fx to tell other higher order fx exactly what it should do
+// note: break and continue is not there in foreach loop so use other loops to use break and continue
