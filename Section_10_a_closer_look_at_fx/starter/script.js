@@ -288,4 +288,35 @@ addTax2VAT(100);
 
 */
 
-//
+// l137: immediately invoked function expressions(IIFE)
+// sometime in js we need a fx that will be executed once not again. means fx should disappear after execution. will be used on async await
+const runOnce = function () {
+  console.log(`this will never run again`);
+};
+runOnce(); // this can be executed multiple times
+
+// 1.IIFE -> fx that never run again; this is not a feature but pattern that is used by dev
+
+(function () {
+  console.log(`this will never run again`);
+
+  // below variables are fx scoped, can not be accessed outside fx. we can say that all data is private/encapsulated in fx scope. its imp to hide variable and scopes are good way of doing this. bcs of this IIFE pattern was invented.
+  const isPrivate = 23;
+  var isPrivate2 = 34;
+})(); // wrap fx in round bracket to fool js and to run fx w/o name. now fx expression is called immediatley
+
+// console.log(isPrivate);
+// console.log(isPrivate2);//one scope can not have access to inner scope
+
+(() => console.log(`this will never run again`))();
+
+// variable declared with let/const create its own scope inside a block
+{
+  const isPrivate =23;
+  var notPrivate = 34; 
+}
+// console.log(isPrivate);// out of scope
+console.log(notPrivate);// parent scoped access
+
+// note: bcs of ES6 blocked scope, IIFE is not used as if we need data privacy than we create a block and not a fx. there is no need to create a fx to  create a scope unless var variable are used. but if you need to execute fx just once than IIFE is used.
+
