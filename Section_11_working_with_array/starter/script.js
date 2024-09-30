@@ -74,6 +74,8 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+/*
 // l143: simple array methods
 // why array have methods? methods are simply fxs that are attached to a object. array is also object. 
 
@@ -120,6 +122,19 @@ console.log(newArr3);
 
 // push, unshift, pop, shift, indexof, includes, intersection
 // more at mdn docs
+*/
 
+// 144 the new at method ES 2022
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(1));
 
+// getting last element
+console.log(arr[arr.length-1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1));// -ve index starts from end
+console.log(arr.at(-34));
 
+// at method can be used in method chaining : combine multiple methods at same time
+// at methd also work on strings
+console.log('sunil'.at(-1));
