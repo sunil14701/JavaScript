@@ -288,6 +288,7 @@ addTax2VAT(100);
 
 */
 
+/*
 // l137: immediately invoked function expressions(IIFE)
 // sometime in js we need a fx that will be executed once not again. means fx should disappear after execution. will be used on async await
 const runOnce = function () {
@@ -320,3 +321,33 @@ console.log(notPrivate);// parent scoped access
 
 // note: bcs of ES6 blocked scope, IIFE is not used as if we need data privacy than we create a block and not a fx. there is no need to create a fx to  create a scope unless var variable are used. but if you need to execute fx just once than IIFE is used.
 
+*/
+
+// ***l138: closures
+// prerequists: Execution context(EC), call stack, scope chain as clousers bring all these concepts together
+
+// note: closure is not feataure like creating an array, object manually, it happens automatically in certain situations we just need to recognise it.
+
+// higher order fx 
+const secureBooking  = function(){
+  let passengerCount = 0;// this variable can not be accessed outside fx
+
+  return function(){
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);    
+  }
+};
+
+let booker = secureBooking();
+booker();
+booker();
+booker();
+
+//Q how is this booker fx has access to passengerCount variable as EC of secureBooking is popped out of call stack?
+// ans closure; closure makes fx remember all the variables that existed at the fx birthplace
+// note secret of clouser: any fx always has access to the variable encironment of the execution context in which the fx was created. even after that EC is popped out. eg: booker fx has access to passengercount variable because it is basically defined in the scope in which the booker fx was created. So scope chain is preserved through the closure even when the scope is popped out bcs its EC is gone. this means that even though the EC is destroyed the variable environment somehow keeps living somewhere in the engine. clouser have priority over scope chain. in execution of booker fx passengercount is not in curent scope so JS will look into the clouser and see if variable is there
+
+// a clouser makes sure that fx does'nt loose connection to variables that existed at the fx birth place.
+
+// we can have a look at backpack/ birthplace variables
+console.dir(booker);// go to scopes in console and it is the variable environment of booker fx. here closure is maintained. double bracket[[]] means that it is an internal property we can not access that property with our code 
