@@ -51,3 +51,16 @@ const newObj = {
   // answers : [1,5,3,9,6,1]
 };
 poll.displayResults.call(newObj, 'string');
+
+// challenge 2
+console.log('#2'.padStart(7,'-').padEnd(12,'-'));
+
+(function(){
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  const body = document.querySelector('body');
+  body.addEventListener('click', function(){
+    header.style.color = 'blue';
+  })
+})();
+// explained: there is a fx that is executed 1 time and in this a event listner is attached to it. the call back fx that is attached to the event listner is executed independently and has a closure linked to it. so we are able to use header variable as the call back fx will remember the birthplace environment variables, it does not care if EC of parent fx is popped out. closure will help to get access of header vairable that callback fx will have in backpack.

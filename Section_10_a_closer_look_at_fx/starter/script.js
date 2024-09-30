@@ -354,6 +354,7 @@ booker();
 console.dir(booker);// go to scopes in console and it is the variable environment of booker fx. here closure is maintained. double bracket[[]] means that it is an internal property we can not access that property with our code 
 */
 
+/*
 // l139: more closure examples
 // we don't need to always return a fx to see closure in action
 
@@ -406,3 +407,5 @@ const boardPassengers = function(n, wait){
 
 const perGroup = 12; // clouser has more priority over scope-chain variables. fx perGroup is commneted than settimout will take this pergroup else clouser pergroup will be taken
 boardPassengers(180,3);
+*/
+
