@@ -323,6 +323,7 @@ console.log(notPrivate);// parent scoped access
 
 */
 
+/*
 // ***l138: closures
 // prerequists: Execution context(EC), call stack, scope chain as clousers bring all these concepts together
 
@@ -351,3 +352,57 @@ booker();
 
 // we can have a look at backpack/ birthplace variables
 console.dir(booker);// go to scopes in console and it is the variable environment of booker fx. here closure is maintained. double bracket[[]] means that it is an internal property we can not access that property with our code 
+*/
+
+// l139: more closure examples
+// we don't need to always return a fx to see closure in action
+
+// eg1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+console.log(f);
+g();
+f(); // EC/variable environment of g fx is finished but f fx can access the variables of g fx
+console.dir(f);
+
+// Re-ASSIGNING F fx
+h();
+f();
+console.dir(f); //old closure disappers
+
+// eg2
+
+// call fx after some time
+setTimeout(function () {
+  console.log('TIMER');
+}, 2000);
+
+const boardPassengers = function(n, wait){
+  const perGroup = n/3;
+
+  // below callback fx will executed independenly so clouser is used to get  variable in birthplace i.e boardpassengers
+  setTimeout(function(){
+    console.log(`We are now boarding all ${n} passengers.`);
+    console.log(`boarding 3 group with  ${perGroup} passengers`);
+  }, wait*1000);
+
+
+  console.log(`Will start boarding in ${wait} seconds`);
+}
+
+const perGroup = 12; // clouser has more priority over scope-chain variables. fx perGroup is commneted than settimout will take this pergroup else clouser pergroup will be taken
+boardPassengers(180,3);
