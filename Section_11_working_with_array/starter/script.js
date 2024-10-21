@@ -296,6 +296,7 @@ const withdrews = movements.filter(value => value <0);
 console.log(withdrews);
 */
 
+/*
 // l154: the reduce method
 // accumulator -> snlowball -> will provide a final value
 const totalMoney = movements.reduce(function (accumulater, currVal, index) {
@@ -324,3 +325,4 @@ const maxMovement = movements.reduce(function (accumulator, curr) {
 },movements[0]);
 console.log(movements);
 console.log(maxMovement);
+*/
