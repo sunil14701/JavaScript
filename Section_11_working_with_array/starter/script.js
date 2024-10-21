@@ -11,7 +11,7 @@
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -140,6 +140,7 @@ for(let item of curr){
 
 */
 
+/*
 // l147 project: banklist app
 // BANKIST APP
 
@@ -223,5 +224,103 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+*/
 
+/*
+// l150:data transformations: map, filter, reduce
+// map: it returns a new array containing the results of applying an operation on all original array elements.
+// filter: it returns a new array containing the array elements that passed a specified test condition.
+// reduce: boils all array elements down to single value.
+
+// l151: the map method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const euroToUsdRate = 1.1;
+
+// this paradigm is more inligned with functional programming, modern way
+const movementsInEuro = movements.map(function (value, index, array) {
+  return value * euroToUsdRate;
+});
+const movementsInEuroArrow = movements.map(
+  (value, index, array) => value * euroToUsdRate
+);
+console.log(movementsInEuro);
+console.log(movementsInEuroArrow);
+
+const movementDescritptions = movements.map((value, index, array) => {
+  let step = value>0? 'deposited': 'withdrew';
+  return `Movement ${index + 1}: You ${step} ${Math.abs(value)}`;
+});
+console.log(movementDescritptions);
+
+// side effect: when we are printing as well as returning from fx
+
+
+// for(let i=0;i<movements.length;i++){
+//   console.log(movements[i]);
+// }
+
+// normal way
+const movementsInEuro2 = [];
+for (const value of movements) {
+  movementsInEuro2.push(value * euroToUsdRate);
+}
+console.log(movementsInEuro2);
+
+// movements.forEach(function(value, index, array){
+//   console.log(value);
+// });
+
+*/
 // HW do assingme section 9
+
+/*
+// l153 the filter method 
+const deposits = movements.filter(function(value){
+  return value>0; // return boolean
+});
+console.log(deposits);
+
+// same as above using for loop
+const deposits2 = [];
+for(const value of movements){
+  if(value>0) deposits2.push(value);
+}
+console.log(deposits2);
+
+// why don't use normal for loop? 1. to use more functional code, 2. to chain all methods together, use them one after other to get big final result
+
+// challange
+// get array of withdrews
+const withdrews = movements.filter(value => value <0);
+console.log(withdrews);
+*/
+
+// l154: the reduce method
+// accumulator -> snlowball -> will provide a final value
+const totalMoney = movements.reduce(function (accumulater, currVal, index) {
+  console.log(index, currVal, accumulater);
+  return accumulater + currVal; // accumulator will always be added sum of prev value
+}, 0);
+console.log(totalMoney);
+
+const totalMoneyArrow = movements.reduce(
+  (accumulater, currVal, index) => accumulater + currVal, // accumulator will always be added sum of prev value
+  0
+);
+console.log(totalMoneyArrow);
+
+// same above with simple loop
+let totalMoney2 = 0;
+for (const value of movements) {
+  totalMoney2 += value;
+}
+console.log(totalMoney2);
+
+// MAXIMUM VALUE using reduce
+const maxMovement = movements.reduce(function (accumulator, curr) {
+  if (accumulator > curr) return accumulator;
+  else return curr;
+},movements[0]);
+console.log(movements);
+console.log(maxMovement);
